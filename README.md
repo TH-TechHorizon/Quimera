@@ -7,7 +7,7 @@ Foram utilizados o TestNG 7.0.0 como o motor de teste e o Allure Framework para 
 Neste core foram criados alguns facilitadores, onde para o correto funcionamento deve-se ter o ambiente corretamente configurado.
 
 Para novos automatizadores é recomendado seguir os itens abaixo, na ordem:
-* Instalação e configuração da IDE e outros
-* [Importação em um novo projeto de teste](http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/Importa%C3%A7%C3%A3o-em-um-novo-projeto-de-teste)
+* [Instalações e Configurações](Instala%C3%A7%C3%B5es-e-Configura%C3%A7%C3%B5es)
+* [Importação do Core em um novo projeto de teste](Importa%C3%A7%C3%A3o-do-Core-em-um-novo-projeto-de-teste)
 * Configuração Projeto de Testes
 * Utilitários do Core
