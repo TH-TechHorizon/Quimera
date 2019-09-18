@@ -1,10 +1,10 @@
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestAuthentication.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestConnection.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestEnvironment.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\utilities\DataBaseUtilities.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\utilities\DateTimeUtilities.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\extension\TestApiExtension.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestEngine.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\utilities\Assertion.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestCoreCentralizer.java
-C:\Users\gerson.willer\.Workspaces\Senior\Quimera Test Framework\Quimera API Core\src\main\java\test\api\core\TestRequest.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestConnection.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestRequest.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestEngine.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\utilities\Assertion.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestCoreCentralizer.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\utilities\DataBaseUtilities.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\utilities\DateTimeUtilities.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestAuthentication.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\extension\TestApiExtension.java
+C:\DEV\QA\Projetos\erpx-core-api-test\src\main\java\test\api\core\TestEnvironment.java
