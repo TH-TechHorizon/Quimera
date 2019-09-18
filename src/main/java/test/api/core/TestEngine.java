@@ -1,4 +1,4 @@
-package senior.quimera.core;
+package test.api.core;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -10,11 +10,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.response.Response;
-import senior.quimera.core.TestEnvironment.AmbinetConfigs;
-import senior.quimera.core.TestEnvironment.DataBasesConfig;
-import senior.quimera.core.TestEnvironment.HttpConfigs;
+import test.api.core.TestEnvironment.AmbinetConfigs;
+import test.api.core.TestEnvironment.DataBasesConfig;
+import test.api.core.TestEnvironment.HttpConfigs;
 
-public class Engine {
+public class TestEngine {
 	private static String jsonConfig = "configExecution.Json";
 
 	public static TestEnvironment environment;

@@ -1,12 +1,12 @@
-package senior.quimera.core;
+package test.api.core;
 
 import org.testng.Assert;
 
 import io.restassured.response.Response;
-import senior.quimera.core.TestRequest.HttpMethod;
+import test.api.core.TestRequest.HttpMethod;
 
 /**	Dados para criar o JSon de Login **/
-public class TestAuthentication extends Core {
+public class TestAuthentication extends TestCoreCentralizer {
 
     /**	Função para retorno do bearer de autenticação, utilizando o usuario e senha definido no Initial Engine.
      *	@param loginData = (Login) Classe de login.

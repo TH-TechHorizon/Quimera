@@ -1,12 +1,12 @@
-package senior.quimera.core;
+package test.api.core;
 import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import senior.quimera.core.Core;
+import test.api.core.TestCoreCentralizer;
 
 
 /**	Chamdas requests padrões, POSTs e GETs, novos poderão ser acrescentados! **/
-public class TestRequest extends Core{
+public class TestRequest extends TestCoreCentralizer{
 
 	private TestRequest() {
         // Static class

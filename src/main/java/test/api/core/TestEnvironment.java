@@ -1,4 +1,4 @@
-package senior.quimera.core;
+package test.api.core;
 
 /**
  * Dados para criar o JSon de Login

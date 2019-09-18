@@ -1,8 +1,8 @@
-package senior.quimera.core;
+package test.api.core;
 
 import java.sql.*;
 
-public class ConnectionDataBases extends Core{
+public class TestConnection extends TestCoreCentralizer{
 	private String local;
 	private String usuario;
 	private String senha;
@@ -11,7 +11,7 @@ public class ConnectionDataBases extends Core{
 	private String str_con;
 	private String driverjdbc;
 
-	public ConnectionDataBases(String datBase, String local, String porta, String banco, String schema, String usuario, String senha) {
+	public TestConnection(String datBase, String local, String porta, String banco, String schema, String usuario, String senha) {
 		if (datBase.equals(dataBase.PostgresSQL.toString())) {
 			setStr_con("jdbc:postgresql://"+ local +":" + porta +"/"+ banco + "?currentSchema=" + schema);
             setLocal(local);

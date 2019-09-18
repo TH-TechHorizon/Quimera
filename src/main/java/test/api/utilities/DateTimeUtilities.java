@@ -1,13 +1,13 @@
-package senior.quimera.utilities;
+package test.api.utilities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import senior.quimera.core.Core;
+import test.api.core.TestCoreCentralizer;
 
 
 /**	Objetivo: Faciltiador para pegar datas no formato correto (yyyy-MM-dd) podendo alterar para o formato desejado. **/
-public class DateTimeUtilities extends Core {
+public class DateTimeUtilities extends TestCoreCentralizer {
 
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	

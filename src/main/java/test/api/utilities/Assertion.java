@@ -1,15 +1,15 @@
-package senior.quimera.utilities;
+package test.api.utilities;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import io.restassured.response.Response;
-import senior.quimera.core.Core;
+import test.api.core.TestCoreCentralizer;
 
 
 /**
  * Classe asserções para os testes
  * @author Gerson.Willer
 **/
-public class Assertion extends Core {
+public class Assertion extends TestCoreCentralizer {
 
 	/** Objetivo: Função que tem como objetivo efetuar a validação do statusCode retornado por algum response.
 	 *	<br>
