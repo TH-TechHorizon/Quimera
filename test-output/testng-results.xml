@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-09-19T18:26:00 BRT" name="Default suite" finished-at="2019-09-19T18:26:16 BRT" duration-ms="15608">
+    <groups>
+    </groups>
+    <test started-at="2019-09-19T18:26:00 BRT" name="Default test" finished-at="2019-09-19T18:26:16 BRT" duration-ms="15608">
+      <class name="teste.ApiTestsTemplate">
+        <test-method is-config="true" signature="recarregarVariaveisDeTeste()[pri:0, instance:teste.ApiTestsTemplate@31920ade]" started-at="2019-09-19T18:26:00 BRT" name="recarregarVariaveisDeTeste" finished-at="2019-09-19T18:26:00 BRT" duration-ms="130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recarregarVariaveisDeTeste -->
+        <test-method is-config="true" signature="efetuaLoginSeNecessario()[pri:0, instance:teste.ApiTestsTemplate@31920ade]" started-at="2019-09-19T18:26:00 BRT" name="efetuaLoginSeNecessario" finished-at="2019-09-19T18:26:14 BRT" duration-ms="13609" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- efetuaLoginSeNecessario -->
+        <test-method is-config="true" signature="resetRelatorio()[pri:0, instance:teste.ApiTestsTemplate@31920ade]" started-at="2019-09-19T18:26:14 BRT" name="resetRelatorio" finished-at="2019-09-19T18:26:14 BRT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetRelatorio -->
+        <test-method signature="test000()[pri:0, instance:teste.ApiTestsTemplate@31920ade]" started-at="2019-09-19T18:26:14 BRT" name="test000" description="Descrição Genérica do Teste" finished-at="2019-09-19T18:26:16 BRT" duration-ms="1116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test000 -->
+        <test-method is-config="true" signature="finalizaTesteAtual(java.lang.reflect.Method)[pri:0, instance:teste.ApiTestsTemplate@31920ade]" started-at="2019-09-19T18:26:16 BRT" name="finalizaTesteAtual" finished-at="2019-09-19T18:26:16 BRT" duration-ms="35" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void teste.ApiTestsTemplate.test000() throws com.fasterxml.jackson.core.JsonProcessingException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizaTesteAtual -->
+      </class> <!-- teste.ApiTestsTemplate -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

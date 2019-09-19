@@ -15,7 +15,7 @@ import test.api.core.TestEnvironment.DataBasesConfig;
 import test.api.core.TestEnvironment.HttpConfigs;
 
 public class TestEngine {
-	private static String jsonConfig = "configExecution.Json";
+	private static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
 
 	public static TestEnvironment environment;
 	public static String urlApiDefault;
@@ -30,7 +30,6 @@ public class TestEngine {
 		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
 		TestEnvironment.DataBasesConfig dataBasesConfig = new DataBasesConfig();
 		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Diretório de Execução: " + jsonConfig);
         try {
         	File jsonInputFile = new File(jsonConfig);
         	JsonNode noder = mapper.readTree(jsonInputFile);
@@ -47,16 +46,16 @@ public class TestEngine {
     		dataBasesConfig.setHost(noder.path("dataBasesConfig").path("host").asText());
     		dataBasesConfig.setPort(noder.path("dataBasesConfig").path("port").asText());
     		dataBasesConfig.setSchemaPrefix(noder.path("dataBasesConfig").path("schemaPrefix").asText());
-    		dataBasesConfig.setUsuario(noder.path("dataBasesConfig").path("usuario").asText());
-    		dataBasesConfig.setSenha(noder.path("dataBasesConfig").path("senha").asText());
+    		dataBasesConfig.setUsuario(noder.path("dataBasesConfig").path("user").asText());
+    		dataBasesConfig.setSenha(noder.path("dataBasesConfig").path("password").asText());
         }catch (Exception e) {
-			System.out.println("Erro: " + e.getMessage());
+        	printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
 		}
         environment.setAmbinetConfigs(ambinetConfigs);
         environment.setDataBasesConfig(dataBasesConfig);
         environment.setHttpConfigs(httpConfig);
         urlApiDefault = httpConfig.getProtocol() + "://" + httpConfig.getHost() + ":" + httpConfig.getPort() + httpConfig.getPatch() + httpConfig.getVersion() + httpConfig.getTypeRequest();
-        System.out.println("urlApiDefault: " + urlApiDefault);
+        printLog("urlApiDefault: " + urlApiDefault);
 	}
 
 	protected static String getUrlAPIDefault() {
@@ -64,10 +63,9 @@ public class TestEngine {
 		return urlApiDefault;
 	}
 
-
-
-	/* [Rotinas Padroes de Log] */
-
+	
+	/* [Rotinas de LOGs Core] */
+	
     /**	Função popular variável de relatório. **/
 	protected static void logInfo(Object infos) {
 		conteudoTest.add(setEnter(2) + "--->" + infos.toString());
@@ -84,12 +82,12 @@ public class TestEngine {
 	}
 
     /**	Função para exibir os logs no console sem formatação. **/
-	protected void printLog(Object infos) {
+	protected static void printLog(Object infos) {
 		System.out.println(infos.toString());
 	}
 
-	/* [Rotinas Padroes do CORE] */
 
+	/* [Rotinas Padroes do CORE] */
 
 	/**	Função para inserir uma ou mais linhas dentro de algum log. **/
 	protected static String setEnter(int quantidade) {
@@ -115,7 +113,7 @@ public class TestEngine {
 	}
 
     /**	Função para buscar a quantidade de elementos de um Json dentro de um caminho específico! **/
-	protected static String getValorJson(Response response, String caminho) {
+	protected static String getJsonValue(Response response, String caminho) {
 		String valor = null;
 		try {
 			valor = response.body().jsonPath().get(caminho).toString();
@@ -126,7 +124,7 @@ public class TestEngine {
 	}
 
     /**	Função para buscar a quantidade de elementos de um Json dentro de um caminho específico! **/
-	protected static int getQuantidadeDeElementos(Response responseBody, String caminho) {
+	protected static int getJsonTotalElements(Response responseBody, String caminho) {
 		int size = 0;
 		try {
 			List<Map<String, String>> jsonObject = responseBody.getBody().jsonPath().getJsonObject(caminho);

@@ -2,9 +2,11 @@ package test.api.extension;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+
 import io.qameta.allure.Allure;
 import test.api.core.TestAuthentication;
 import test.api.core.TestCoreCentralizer;

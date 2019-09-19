@@ -1,6 +1,7 @@
 package test.api.utilities;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import io.restassured.response.Response;
 import test.api.core.TestCoreCentralizer;
 
@@ -100,7 +101,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param caminho = (String) Caminho do patch json do campo.
 			**/
 			public static void equalText(Response resposta, String textoEsperado, String caminho) {
-				String textoValidado = getValorJson(resposta, caminho);
+				String textoValidado = getJsonValue(resposta, caminho);
 				logInfo("Verificando se o texto esperado: "+textoEsperado+" |É igual a: "+textoValidado+"|");
 				assertThat(textoEsperado).isEqualTo(textoValidado);
 			}
@@ -112,7 +113,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param caminho = (String) Caminho do patch json do campo.
 			 **/
 			public static void equalNumber(Response resposta, int numeroEsperado, String caminho) {
-				int numeroValidado = Integer.parseInt(getValorJson(resposta, caminho));
+				int numeroValidado = Integer.parseInt(getJsonValue(resposta, caminho));
 				logInfo("Verificando se o número esperado: "+numeroEsperado+" |É igual a: "+numeroValidado+" |");
 				assertThat(numeroEsperado).isEqualTo(numeroValidado);
 			}
@@ -124,7 +125,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param caminho = (String) Caminho do patch json do campo.
 			 **/
 			public static void equalSize(Response resposta, int tamanhoEsperado, String caminho) {
-				int tamanhoValidado = getQuantidadeDeElementos(resposta, caminho);
+				int tamanhoValidado = getJsonTotalElements(resposta, caminho);
 				logInfo("Verificando se o tamanho esperado: "+tamanhoEsperado+" |É igual a: "+tamanhoValidado+" |");
 				assertThat(tamanhoEsperado).isEqualTo(tamanhoValidado);
 			}
@@ -138,7 +139,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param caminho = (String) Caminho do patch json do campo.
 			**/
 			public static void nullText(Response resposta, String caminho) {
-				String textoValidado = getValorJson(resposta, caminho);
+				String textoValidado = getJsonValue(resposta, caminho);
 				logInfo("Verificando se o texto: "+textoValidado+" está nulo.");
 				assertThat(textoValidado).isNotNull();
 			}
