@@ -10,4 +10,4 @@ Link do Artifactory da Sênior: [erpx-core-api-test](http://maven.senior.com.br:
 
 * [Instalações e Configurações](http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/Instala%C3%A7%C3%B5es-e-Configura%C3%A7%C3%B5es)
 * [Iniciando um Novo Projeto de Testes](http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/Iniciando-um-Novo-Projeto-de-Testes)
-* Utilitários do Core
+* [Recursos do Core](http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/Recursos-do-Core)
