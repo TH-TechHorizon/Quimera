@@ -9,11 +9,11 @@ import test.api.core.TestRequest.HttpMethod;
 public class TestAuthentication extends TestCoreCentralizer {
 
     /**	Função para retorno do bearer de autenticação, utilizando o usuario e senha definido no Initial Engine.
-     *	@param loginData = (Login) Classe de login.
-     *	@param URLBase = (String) URL da primitiva de login.
+     *	@param loginData = (Tenant) Classe de login.
+     *	@param loginURL = (String) URL da primitiva de login.
     **/
-	public String getBearer(classLogin loginData, String URLBase) {
-		Response Auth = TestRequest.request(HttpMethod.POST, null, loginData, URLBase);
+	public String getBearer(Tenant loginData, String loginURL) {
+		Response Auth = TestRequest.request(HttpMethod.POST, null, loginData, loginURL);
 		String autorization = Auth.asString();
 		String getBearer = "";
 		try {
@@ -26,7 +26,7 @@ public class TestAuthentication extends TestCoreCentralizer {
 		return getBearer;
 	}
 	
-	public static class classLogin{
+	public static class Tenant{
 		private String username;
 		private String password;
 	

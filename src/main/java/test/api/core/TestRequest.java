@@ -27,7 +27,7 @@ public class TestRequest extends TestCoreCentralizer{
      * Request do tipo POST, para requisições que NECESSITEM de uma validação HTTPS.
      **/
     public static Response request(final HttpMethod httpMethod, final boolean https, final String bearer, final Object body, final String URL) {
-    	logInfo(" Body a enviar: " + body);
+    	TestLogger.logInfo(" Body a enviar: " + body);
         String contenttype = "application/json; charset=UTF-8";
         RequestSpecification requestSpecification = given();
         if (!https) {
@@ -48,7 +48,7 @@ public class TestRequest extends TestCoreCentralizer{
         } else if (httpMethod == HttpMethod.PATCH) {
             response = requestSpecification.contentType(contenttype).when().body(body).patch(URL).then().extract().response();
         }
-        logResponse(response);
+        TestLogger.logResponse(response);
         return response;
     }
 

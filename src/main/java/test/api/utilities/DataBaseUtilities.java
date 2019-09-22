@@ -8,13 +8,14 @@ import java.util.List;
 import test.api.core.TestConnection;
 import test.api.core.TestCoreCentralizer;
 import test.api.core.TestEnvironment;
+import test.api.core.TestLogger;
 
 
 /**	Objetivo: Acesso e controle de SGBDs. **/
 public class DataBaseUtilities extends TestCoreCentralizer {
 
 	private static void logInfoError(String error) {
-		logInfo("Ocorreu erro ao tentar efetuar Select ou Update na base de dados: " + error);
+		TestLogger.logInfo("Ocorreu erro ao tentar efetuar Select ou Update na base de dados: " + error);
 	}
 	
 	private static ResultSet getResultSet(TestConnection con, String query) throws SQLException {

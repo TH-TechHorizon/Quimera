@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.restassured.response.Response;
 import test.api.core.TestCoreCentralizer;
+import test.api.core.TestLogger;
 
 
 /**
@@ -25,7 +26,7 @@ public class Assertion extends TestCoreCentralizer {
 	**/
 	public static void equalStatusCode(Response resposta, int statusEsperado) {
 		String statusValidado = String.valueOf(resposta.getStatusCode());
-		logInfo("Verificando se o status retornado: "+statusValidado+" |É igual a: "+statusEsperado+" |");
+		TestLogger.logInfo("Verificando se o status retornado: "+statusValidado+" |É igual a: "+statusEsperado+" |");
 		assertThat(statusEsperado).isEqualTo(resposta.getStatusCode());
 	}
 
@@ -43,7 +44,7 @@ public class Assertion extends TestCoreCentralizer {
 			 * 	@param textoValidado (String) = Texto que terá que ser igual ao texto esperado.
 			**/
 			public static void equalText(String textoEsperado, String textoValidado) {
-				logInfo("Verificando se o texto esperado: "+textoEsperado+" |É igual a: "+textoValidado+" |");
+				TestLogger.logInfo("Verificando se o texto esperado: "+textoEsperado+" |É igual a: "+textoValidado+" |");
 				assertThat(textoEsperado).isEqualTo(textoValidado);
 			}
 
@@ -57,7 +58,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param numeroValidado = (int) Número que será validado.
 			 **/
 			public static void equalNumber(int numeroEsperado, int numeroValidado) {
-				logInfo("Verificando se o número esperado: "+String.valueOf(numeroEsperado)+" |É igual a: "+String.valueOf(numeroValidado) + " |");
+				TestLogger.logInfo("Verificando se o número esperado: "+String.valueOf(numeroEsperado)+" |É igual a: "+String.valueOf(numeroValidado) + " |");
 				assertThat(numeroEsperado).isEqualTo(numeroValidado);
 			}
 
@@ -71,7 +72,7 @@ public class Assertion extends TestCoreCentralizer {
 			 * 	@param valorValidado (Double) = Valor que terá que ser igual ao valorEsperado.
 			**/
 			public static void equalDouble(Double valorEsperado, Double valorValidado) {
-				logInfo("Verificando se os valores valorEsperado: "+valorEsperado.toString()+" |É igual a: "+valorValidado.toString()+" |");
+				TestLogger.logInfo("Verificando se os valores valorEsperado: "+valorEsperado.toString()+" |É igual a: "+valorValidado.toString()+" |");
 				assertThat(valorEsperado).isEqualTo(valorValidado);
 			}
 		}
@@ -83,7 +84,7 @@ public class Assertion extends TestCoreCentralizer {
 			 *	@param texto = (String) Variável ou retorno que seja esperado que o texto seja nulo.
 			 **/
 			public static void nullText(String texto) {
-				logInfo("Verificando se o texto: " + texto + " está nulo!");
+				TestLogger.logInfo("Verificando se o texto: " + texto + " está nulo!");
 				assertThat(texto).isNotNull();
 			}
 		}
@@ -102,7 +103,7 @@ public class Assertion extends TestCoreCentralizer {
 			**/
 			public static void equalText(Response resposta, String textoEsperado, String caminho) {
 				String textoValidado = getJsonValue(resposta, caminho);
-				logInfo("Verificando se o texto esperado: "+textoEsperado+" |É igual a: "+textoValidado+"|");
+				TestLogger.logInfo("Verificando se o texto esperado: "+textoEsperado+" |É igual a: "+textoValidado+"|");
 				assertThat(textoEsperado).isEqualTo(textoValidado);
 			}
 
@@ -114,7 +115,7 @@ public class Assertion extends TestCoreCentralizer {
 			 **/
 			public static void equalNumber(Response resposta, int numeroEsperado, String caminho) {
 				int numeroValidado = Integer.parseInt(getJsonValue(resposta, caminho));
-				logInfo("Verificando se o número esperado: "+numeroEsperado+" |É igual a: "+numeroValidado+" |");
+				TestLogger.logInfo("Verificando se o número esperado: "+numeroEsperado+" |É igual a: "+numeroValidado+" |");
 				assertThat(numeroEsperado).isEqualTo(numeroValidado);
 			}
 
@@ -126,7 +127,7 @@ public class Assertion extends TestCoreCentralizer {
 			 **/
 			public static void equalSize(Response resposta, int tamanhoEsperado, String caminho) {
 				int tamanhoValidado = getJsonTotalElements(resposta, caminho);
-				logInfo("Verificando se o tamanho esperado: "+tamanhoEsperado+" |É igual a: "+tamanhoValidado+" |");
+				TestLogger.logInfo("Verificando se o tamanho esperado: "+tamanhoEsperado+" |É igual a: "+tamanhoValidado+" |");
 				assertThat(tamanhoEsperado).isEqualTo(tamanhoValidado);
 			}
 		}
@@ -140,7 +141,7 @@ public class Assertion extends TestCoreCentralizer {
 			**/
 			public static void nullText(Response resposta, String caminho) {
 				String textoValidado = getJsonValue(resposta, caminho);
-				logInfo("Verificando se o texto: "+textoValidado+" está nulo.");
+				TestLogger.logInfo("Verificando se o texto: "+textoValidado+" está nulo.");
 				assertThat(textoValidado).isNotNull();
 			}
 

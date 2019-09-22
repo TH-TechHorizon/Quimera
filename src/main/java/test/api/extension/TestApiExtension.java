@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import io.qameta.allure.Allure;
 import test.api.core.TestAuthentication;
 import test.api.core.TestCoreCentralizer;
+import test.api.core.TestLogger;
 
 
 /**	Engine inicial para AmbientDefault e validações primárias dos testes. **/
@@ -21,7 +22,7 @@ public class TestApiExtension extends TestCoreCentralizer {
 		tituloTest = new String();
 		conteudoTest = new ArrayList<String>();
 		if(authorizationBearer == null || authorizationBearer.isEmpty()) {
-			TestAuthentication.classLogin usuario = new TestAuthentication.classLogin();
+			TestAuthentication.Tenant usuario = new TestAuthentication.Tenant();
 			usuario.setUsername(environment.getAmbinetConfigs().getTenant());
 			usuario.setPassword(environment.getAmbinetConfigs().getPassword());
 			authorizationBearer = autenticacaoPlataforma.getBearer(usuario, getUrlAPIDefault() + "platform/authentication/actions/login");
@@ -37,7 +38,7 @@ public class TestApiExtension extends TestCoreCentralizer {
 
 	@AfterMethod
 	protected void finalizaTesteAtual(Method testInfo) {
-		testInfoLogger(testInfo);
+		TestLogger.testInfoLogger(testInfo);
 		String relatorioFinal = "";
 		relatorTest.add(tituloTest);
 		relatorTest.addAll(conteudoTest);
@@ -45,7 +46,7 @@ public class TestApiExtension extends TestCoreCentralizer {
 			relatorioFinal = relatorioFinal + texto;
 		}
 		if (!conteudoTest.isEmpty()) {
-			printLog(relatorioFinal);
+			TestLogger.printLog(relatorioFinal);
 			Allure.addAttachment("Relatorio do teste", relatorioFinal);
 		}
 	}

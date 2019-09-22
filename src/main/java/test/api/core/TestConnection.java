@@ -28,7 +28,7 @@ public class TestConnection extends TestCoreCentralizer{
             setCon(DriverManager.getConnection(getStr_con(), getUsuario(), getSenha()));
             setStatement(getCon().createStatement());
         }catch (Exception e) {
-        	logInfo("Erro ao se conectar a base de dados: " + e.getMessage());
+        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + e.getMessage());
         }
     }
 
@@ -37,7 +37,7 @@ public class TestConnection extends TestCoreCentralizer{
         try {
             getCon().close();
         }catch (SQLException ex) {
-        	logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
+        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
         }
     }
 
@@ -46,7 +46,7 @@ public class TestConnection extends TestCoreCentralizer{
         try {
             return getStatement().executeQuery(query);
         }catch (SQLException ex) {
-        	logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
+        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
             return null;
         }
     }
