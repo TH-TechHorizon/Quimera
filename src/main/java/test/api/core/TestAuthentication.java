@@ -5,12 +5,17 @@ import org.testng.Assert;
 import io.restassured.response.Response;
 import test.api.core.TestRequest.HttpMethod;
 
-/**	Dados para criar o JSon de Login **/
+/**	
+ * Classe com o objetivo de conter as informações de login na plataforma. A mesma poderá ser importada para manipulação das informações de login.
+ * <br>
+ * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestAuthentication#testauthentication">Testauthentication</a>
+**/
 public class TestAuthentication extends TestCoreCentralizer {
 
     /**	Função para retorno do bearer de autenticação, utilizando o usuario e senha definido no Initial Engine.
      *	@param loginData = (Tenant) Classe de login.
      *	@param loginURL = (String) URL da primitiva de login.
+     *	@see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestAuthentication#m%C3%A9todo-getbearertenant-logindata-string-loginurl">getBearer(Tenant loginData, String loginURL)</a>
     **/
 	public String getBearer(Tenant loginData, String loginURL) {
 		Response Auth = TestRequest.request(HttpMethod.POST, null, loginData, loginURL);
@@ -25,7 +30,12 @@ public class TestAuthentication extends TestCoreCentralizer {
 		}
 		return getBearer;
 	}
-	
+
+	/**
+	 * Esta sub classe tem como objetivo servir como um facilitador para login e obter o Tenant e password Default do nosso teste.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestAuthentication#sub-classe-tenant">Sub Classe Tenant</a>
+	**/
 	public static class Tenant{
 		private String username;
 		private String password;

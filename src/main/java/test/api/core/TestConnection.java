@@ -2,6 +2,11 @@ package test.api.core;
 
 import java.sql.*;
 
+/**	
+ * Esta classe tem o objetivo de administrar as conexões com o banco de dados. A mesma poderá ser importada para criar novas conexões com informações diferentes das informações default.
+ * <br>
+ * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestConnection#testconnection">TestConnection</a>
+**/
 public class TestConnection extends TestCoreCentralizer{
 	private String local;
 	private String usuario;
@@ -10,6 +15,11 @@ public class TestConnection extends TestCoreCentralizer{
 	private Statement statement;
 	private String str_con;
 	private String driverjdbc;
+
+
+	private void sendLog(Exception error) {
+		TestLogger.logInfo("Erro ao se conectar a base de dados: " + error.getMessage());
+	}
 
 	public TestConnection(String datBase, String local, String porta, String banco, String schema, String usuario, String senha) {
 		if (datBase.equals(dataBase.PostgresSQL.toString())) {
@@ -21,14 +31,18 @@ public class TestConnection extends TestCoreCentralizer{
 		}
 	}
 
-    //Conexão com o Banco de Dados
+	/**	
+	 * Criar uma nova instância de conexão com o banco de dados.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestConnection#m%C3%A9todo-connecttenant-logindata-string-loginurl">connect(Tenant loginData, String loginURL)</a>
+	**/
     public void connect(){
         try {
             Class.forName(getDriverjdbc());
             setCon(DriverManager.getConnection(getStr_con(), getUsuario(), getSenha()));
             setStatement(getCon().createStatement());
         }catch (Exception e) {
-        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + e.getMessage());
+        	sendLog(e);
         }
     }
 
@@ -37,7 +51,7 @@ public class TestConnection extends TestCoreCentralizer{
         try {
             getCon().close();
         }catch (SQLException ex) {
-        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
+        	sendLog(ex);
         }
     }
 
@@ -46,7 +60,7 @@ public class TestConnection extends TestCoreCentralizer{
         try {
             return getStatement().executeQuery(query);
         }catch (SQLException ex) {
-        	TestLogger.logInfo("Erro ao se conectar a base de dados: " + ex.getMessage());
+        	sendLog(ex);
             return null;
         }
     }

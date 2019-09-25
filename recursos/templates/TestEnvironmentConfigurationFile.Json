@@ -16,7 +16,7 @@
 		"host" : "Host do banco de dados | exemplo: teste216.interno.senior.com.br",
 		"port" : "Port do banco de dados | exemplo: 5432",
 		"base" : "Nome da Base de dados | exemplo: erpx",
-		"schemaPrefix" : "Prefixo do Schema se tiver | exemplo: erpx_sup_rcb_",
+		"schemaName" : "Nome do schema | exemplo: erpx_sup_rcb_suprimentosx",
 		"user" : "Usuario do banco de dados | exemplo: postgres",
 		"password" : "Senha do usuario do banco de dados | exemplo: postgres"
 	}

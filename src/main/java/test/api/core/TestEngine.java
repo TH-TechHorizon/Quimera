@@ -13,6 +13,13 @@ import test.api.core.TestEnvironment.AmbinetConfigs;
 import test.api.core.TestEnvironment.DataBasesConfig;
 import test.api.core.TestEnvironment.HttpConfigs;
 
+/**	
+ * Este é o coração da automação, com os métodos e propriedades principais.
+ * <br>
+ * O TestEngine tem como responsabilidade dar o Start inicial para os testes, capturar as informações padrões do TestEnvironmentConfigurationFile.Json e armazenar em uma propriedade do tipo TestEnvironment.
+ * <br>
+ * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#testengine">TestEngine</a>
+**/
 public class TestEngine {
 	private static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
 
@@ -22,8 +29,16 @@ public class TestEngine {
 	public static String tituloTest;
 	public static List<String> conteudoTest;
 
-	/** [Rotinas Padroes do CORE] **/
-	protected static void getAmbientClassDefaults() {
+	/* [Rotinas Padroes do CORE] */
+
+	/**	
+	 * Buscar as informações do TestEnvironmentConfigurationFile.Json e popular a variável environment com os dados, umas das variáveis populadas é a urlApiDefault.
+	 * <br>
+	 * Ele popula a mesma com as informações do TestEnvironment.HttpConfigs para criar essa URL, a formula para a criação deste parâmetro é: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getenvironmentdefaults">getEnvironmentDefaults</a>
+	**/
+	protected static void getEnvironmentDefaults() {
 		environment = new TestEnvironment();
 		TestEnvironment.HttpConfigs httpConfig = new HttpConfigs();
 		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
@@ -38,13 +53,13 @@ public class TestEngine {
         	httpConfig.setPatch(noder.path("HttpConfigs").path("patch").asText());
         	httpConfig.setVersion(noder.path("HttpConfigs").path("version").asText());
     		httpConfig.setTypeRequest(noder.path("HttpConfigs").path("typeRequest").asText());
-    		ambinetConfigs.setTenant(noder.path("ambinetConfigs").path("tenant").asText());
+    		ambinetConfigs.setUsername(noder.path("ambinetConfigs").path("tenant").asText());
     		ambinetConfigs.setPassword(noder.path("ambinetConfigs").path("password").asText());
     		dataBasesConfig.setDatabaseType(noder.path("dataBasesConfig").path("databaseType").asText());
     		dataBasesConfig.setBase(noder.path("dataBasesConfig").path("base").asText());
     		dataBasesConfig.setHost(noder.path("dataBasesConfig").path("host").asText());
     		dataBasesConfig.setPort(noder.path("dataBasesConfig").path("port").asText());
-    		dataBasesConfig.setSchemaPrefix(noder.path("dataBasesConfig").path("schemaPrefix").asText());
+    		dataBasesConfig.setSchemaName(noder.path("dataBasesConfig").path("schemaPrefix").asText());
     		dataBasesConfig.setUsuario(noder.path("dataBasesConfig").path("user").asText());
     		dataBasesConfig.setSenha(noder.path("dataBasesConfig").path("password").asText());
         }catch (Exception e) {
@@ -57,14 +72,32 @@ public class TestEngine {
         TestLogger.printLog("urlApiDefault: " + urlApiDefault);
 	}
 
+	/**	
+	 * Busca o link padrão para as requisições das apis.
+	 * <br>
+	 * @return Retorna o link formado pela fórmula: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-geturlapidefault">getUrlAPIDefault</a>
+	**/
 	protected static String getUrlAPIDefault() {
-		getAmbientClassDefaults();
+		getEnvironmentDefaults();
 		return urlApiDefault;
 	}
 
+
 	/* [Rotinas Padroes do CORE] */
 
-    /**	Função para encapsular um objeto para Json para usar nos requests!	[Já está sendo usado nos requestsJsons] **/
+	/**	
+	 * Transformar uma classe em um JSON.
+	 * <br>
+	 * <b>[Apenas usado no <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestRequest">TestRequest</a>]</b>
+	 * <br>
+	 * @param body (Object) = Deverá ser uma classe, ou um objeto passível a ser parseado em JSON.
+	 * <br>
+	 * @return Retorna uma string com os dados informados no formato JSON.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-geturlapidefault">encodeJsonBody</a>
+	**/
 	protected static String encodeJsonBody(Object body) {
 		ObjectMapper mapper = new ObjectMapper();
 		String bodyEncode = null;
@@ -76,7 +109,16 @@ public class TestEngine {
 		return bodyEncode;
 	}
 
-    /**	Função para buscar o valor de um elementos Json dentro de um caminho específico! **/
+	/**	
+	 * Função para buscar o valor de um elementos Json dentro de um caminho específico.
+	 * <br>
+	 * @param response (Response) = Deverá receber o retorno de uma requisição do RestAssured.io.
+	 * @param caminho (String) = Conter o caminho de elementos até o json especifico.
+	 * <br>
+	 * @return O valor encontrado para o elemento buscado.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getjsonvalueresponse-response-string-caminho">getJsonValue</a>
+	**/
 	protected static String getJsonValue(Response response, String caminho) {
 		String valor = null;
 		try {
@@ -87,7 +129,16 @@ public class TestEngine {
 		return valor;
 	}
 
-    /**	Função para buscar a quantidade de elementos Json dentro de um caminho específico! **/
+	/**	
+	 * Retornar a quantidade de elementos filhos de um elementos específico.
+	 * <br>
+	 * @param response (Response) = Deverá receber o retorno de uma requisição do RestAssured.io.
+	 * @param caminho (String) = Conter o caminho de elementos até o json especifico.
+	 * <br>
+	 * @return Numero da quantidade de elementos filhos do elemento buscado.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getjsontotalelementsresponse-responsebody-string-caminho">getJsonTotalElements</a>
+	**/
 	protected static int getJsonTotalElements(Response responseBody, String caminho) {
 		int size = 0;
 		try {
@@ -99,5 +150,4 @@ public class TestEngine {
 		return size;
 	}
 	
-
 }

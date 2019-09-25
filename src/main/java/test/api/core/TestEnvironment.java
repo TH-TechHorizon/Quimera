@@ -1,7 +1,9 @@
 package test.api.core;
 
-/**
- * Dados para criar o JSon de Login
+/**	
+ * Esta classe tem o objetivo de administrar e manipular as informações do ambiente de teste.
+ * <br>
+ * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEnvironment#testenvironment">TestEnvironment</a>
 **/
 public class TestEnvironment {
 	private HttpConfigs HttpConfigs;
@@ -32,7 +34,11 @@ public class TestEnvironment {
 		this.dataBasesConfig = dataBasesConfig;
 	}
 
-
+	/**	
+	 * Esta classe representa os dados de conexão para as requisições, por exemplo, o host, porta, o tipo de protocolo e outras informações.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEnvironment.HttpConfigs#httpconfigs">HttpConfigs</a>
+	**/
 	public static class HttpConfigs{
 		private String protocol;
 		private String host;
@@ -79,15 +85,20 @@ public class TestEnvironment {
 		}
 	}
 
+	/**	
+	 * Esta classe representa as informações de login e usuário.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/testenvironment.ambinetconfigs#ambinetconfigs">AmbinetConfigs</a>
+	**/
 	public static class AmbinetConfigs{
-		private String tenant;
+		private String username;
 		private String password;
 
-		public String getTenant() {
-			return tenant;
+		public String getUsername() {
+			return username;
 		}
-		public void setTenant(String tenant) {
-			this.tenant = tenant;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 		public String getPassword() {
 			return password;
@@ -97,12 +108,17 @@ public class TestEnvironment {
 		}
 	}
 
+	/**	
+	 * Esta classe representa as informações de acesso ao banco de dados, as rotinas de acesso ao banco de dados podem receber subclasses personalizadas para outros tipos e outros acessos ao banco de dados.
+	 * <br>
+	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/testenvironment.DataBasesConfig#databasesconfig">DataBasesConfig</a>
+	**/
 	public static class DataBasesConfig{
 		private String databaseType;
 		private String host;
 		private String port;
 		private String base;
-		private String schemaPrefix;
+		private String schemaName;
 		private String usuario;
 		private String senha;
 
@@ -130,11 +146,11 @@ public class TestEnvironment {
 		public void setBase(String base) {
 			this.base = base;
 		}
-		public String getSchemaPrefix() {
-			return schemaPrefix;
+		public String getSchemaName() {
+			return schemaName;
 		}
-		public void setSchemaPrefix(String schemaPrefix) {
-			this.schemaPrefix = schemaPrefix;
+		public void setSchemaName(String schemaName) {
+			this.schemaName = schemaName;
 		}
 		public String getUsuario() {
 			return usuario;
