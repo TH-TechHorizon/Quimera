@@ -7,8 +7,18 @@
 		"version" : "Version da requisição | exemplo: 1.0/",
 		"typeRequest" : "Type request da requisição | exemplo: rest/"
 	},
+	"UIEnvConfigs" : {
+		"chromeDriverPath" : "Caminho do Driver do Chrome para Testes Automatizados",
+		"geckoDriverPath" : "Caminho do Driver do Firefox para Testes Automatizados",
+		"navegador" : "chrome | O navegador poderá ser chrome ou firefox",
+		"urlInitial" : "URL que será acessada inicialmente em cada teste!",
+		"exibirNavegador" : "false | Se o navegador será exibido ou não, tem duas opções sendo: true ou false",
+		"maximizarNavegador" : "false | Se o navegador será exibido maximizado inicialmente ou não, as opções são: true ou false",
+		"sleepTime" : "500 | Tempo em milisegundos que será usado para os Sleeps padrões",
+		"timeOutTime" : "5 | Tempo em segundos que será usado para os TimeOuts padrões"
+	},
 	"ambinetConfigs" : {
-		"tenant" : "Tenant usado para os testes",
+		"username" : "Usuário usado para os testes",
 		"password" : "Senha do Tenant no host"
 	},
 	"dataBasesConfig" : {

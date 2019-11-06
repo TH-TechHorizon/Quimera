@@ -1,24 +1,27 @@
-package test.api.core;
+package quimera.test.core;
 
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeTest;
 
-import test.api.utilities.DataBaseUtilities;
+import quimera.test.core.engine.TestEngine;
+import quimera.test.utilities.DataBaseUtilities;
+import quimera.test.utilities.UiUtilities;
 
 /**	
  * Classe de comunicação entre as classe TestApiExtension e o TestEngine.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestCoreCentralizer#testcorecentralizer">TestCoreCentralizer</a>
 **/
 public class TestCoreCentralizer extends TestEngine {
 
 	protected static String authorizationBearer;
-	protected static TestAuthentication autenticacaoPlataforma = new TestAuthentication();
+	protected static WebDriver driver = null;
+	protected static UiUtilities uiTool = new UiUtilities();
 	protected static DataBaseUtilities.Select select = new DataBaseUtilities.Select();
 	protected static DataBaseUtilities.Update update = new DataBaseUtilities.Update();
 
-	@BeforeClass
+	@BeforeTest
 	public void initialEngine() {
-		getEnvironmentDefaults();
+		getEnvironment();
 	}
 	
 }

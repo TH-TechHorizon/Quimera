@@ -1,4 +1,4 @@
-package test.api.core;
+package quimera.test.core.engine;
 
 import java.io.File;
 import java.util.List;
@@ -9,22 +9,25 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.response.Response;
-import test.api.core.TestEnvironment.AmbinetConfigs;
-import test.api.core.TestEnvironment.DataBasesConfig;
-import test.api.core.TestEnvironment.HttpConfigs;
+import quimera.test.core.environment.TestEnvironment;
+import quimera.test.core.environment.TestEnvironment.AmbinetConfigs;
+import quimera.test.core.environment.TestEnvironment.DataBasesConfig;
+import quimera.test.core.environment.TestEnvironment.HttpConfigs;
+import quimera.test.core.environment.TestEnvironment.UIEnvConfigs;
+import quimera.test.core.log.TestLogger;
 
 /**	
  * Este é o coração da automação, com os métodos e propriedades principais.
  * <br>
  * O TestEngine tem como responsabilidade dar o Start inicial para os testes, capturar as informações padrões do TestEnvironmentConfigurationFile.Json e armazenar em uma propriedade do tipo TestEnvironment.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#testengine">TestEngine</a>
 **/
 public class TestEngine {
-	private static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
+	protected static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
 
 	public static TestEnvironment environment;
 	public static String urlApiDefault;
+	public static String urlInitial;
 	public static List<String> relatorTest;
 	public static String tituloTest;
 	public static List<String> conteudoTest;
@@ -36,13 +39,22 @@ public class TestEngine {
 	 * <br>
 	 * Ele popula a mesma com as informações do TestEnvironment.HttpConfigs para criar essa URL, a formula para a criação deste parâmetro é: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getenvironmentdefaults">getEnvironmentDefaults</a>
 	**/
-	protected static void getEnvironmentDefaults() {
+	protected static void getEnvironment() {
 		environment = new TestEnvironment();
+		getEnvironmentHttpConfigs(environment);
+		getEnvironmentUIEnvConfigs(environment);
+		getEnvironmentAmbinetConfigs(environment);
+		getEnvironmentDataBasesConfig(environment);
+
+        urlApiDefault = environment.getHttpConfigs().getProtocol() + "://" + environment.getHttpConfigs().getHost() + ":" + environment.getHttpConfigs().getPort() + environment.getHttpConfigs().getPatch() + environment.getHttpConfigs().getVersion() + environment.getHttpConfigs().getTypeRequest();
+        urlInitial = environment.getUIEnvConfigs().getUrlInitial();
+        TestLogger.printLog("urlApiDefault: " + urlApiDefault);
+        TestLogger.printLog("urlInitial: " + urlInitial);
+	}
+	
+	protected static void getEnvironmentHttpConfigs(TestEnvironment environment) {
 		TestEnvironment.HttpConfigs httpConfig = new HttpConfigs();
-		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
-		TestEnvironment.DataBasesConfig dataBasesConfig = new DataBasesConfig();
 		ObjectMapper mapper = new ObjectMapper();
         try {
         	File jsonInputFile = new File(jsonConfig);
@@ -53,8 +65,52 @@ public class TestEngine {
         	httpConfig.setPatch(noder.path("HttpConfigs").path("patch").asText());
         	httpConfig.setVersion(noder.path("HttpConfigs").path("version").asText());
     		httpConfig.setTypeRequest(noder.path("HttpConfigs").path("typeRequest").asText());
-    		ambinetConfigs.setUsername(noder.path("ambinetConfigs").path("tenant").asText());
+        }catch (Exception e) {
+        	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
+		}
+        environment.setHttpConfigs(httpConfig);
+	}
+
+	protected static void getEnvironmentUIEnvConfigs(TestEnvironment environment) {
+		TestEnvironment.UIEnvConfigs uIEnvConfigs = new UIEnvConfigs();
+		ObjectMapper mapper = new ObjectMapper();
+        try {
+        	File jsonInputFile = new File(jsonConfig);
+        	JsonNode noder = mapper.readTree(jsonInputFile);
+        	uIEnvConfigs.setUrlInitial(noder.path("UIEnvConfigs").path("urlInitial").asText());
+        	uIEnvConfigs.setNavegador(noder.path("UIEnvConfigs").path("navegador").asText());
+        	uIEnvConfigs.setExibirNavegador(noder.path("UIEnvConfigs").path("exibirNavegador").asText());
+        	uIEnvConfigs.setMaximizarNavegador(noder.path("UIEnvConfigs").path("maximizarNavegador").asText());
+        	uIEnvConfigs.setSleepTime(noder.path("UIEnvConfigs").path("sleepTime").asText());
+        	uIEnvConfigs.setTimeOutTime(noder.path("UIEnvConfigs").path("timeOutTime").asText());
+        	uIEnvConfigs.setChromeDriverPath(noder.path("UIEnvConfigs").path("chromeDriverPath").asText());
+        	uIEnvConfigs.setGeckoDriverPath(noder.path("UIEnvConfigs").path("geckoDriverPath").asText());
+        }catch (Exception e) {
+        	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
+		}
+        environment.setUIEnvConfigs(uIEnvConfigs);
+	}
+	
+	protected static void getEnvironmentAmbinetConfigs(TestEnvironment environment) {
+		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
+		ObjectMapper mapper = new ObjectMapper();
+        try {
+        	File jsonInputFile = new File(jsonConfig);
+        	JsonNode noder = mapper.readTree(jsonInputFile);
+    		ambinetConfigs.setUsername(noder.path("ambinetConfigs").path("username").asText());
     		ambinetConfigs.setPassword(noder.path("ambinetConfigs").path("password").asText());
+        }catch (Exception e) {
+        	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
+		}
+        environment.setAmbinetConfigs(ambinetConfigs);
+	}
+
+	protected static void getEnvironmentDataBasesConfig(TestEnvironment environment) {
+		TestEnvironment.DataBasesConfig dataBasesConfig = new DataBasesConfig();
+		ObjectMapper mapper = new ObjectMapper();
+        try {
+        	File jsonInputFile = new File(jsonConfig);
+        	JsonNode noder = mapper.readTree(jsonInputFile);
     		dataBasesConfig.setDatabaseType(noder.path("dataBasesConfig").path("databaseType").asText());
     		dataBasesConfig.setBase(noder.path("dataBasesConfig").path("base").asText());
     		dataBasesConfig.setHost(noder.path("dataBasesConfig").path("host").asText());
@@ -65,11 +121,7 @@ public class TestEngine {
         }catch (Exception e) {
         	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
 		}
-        environment.setAmbinetConfigs(ambinetConfigs);
         environment.setDataBasesConfig(dataBasesConfig);
-        environment.setHttpConfigs(httpConfig);
-        urlApiDefault = httpConfig.getProtocol() + "://" + httpConfig.getHost() + ":" + httpConfig.getPort() + httpConfig.getPatch() + httpConfig.getVersion() + httpConfig.getTypeRequest();
-        TestLogger.printLog("urlApiDefault: " + urlApiDefault);
 	}
 
 	/**	
@@ -77,12 +129,19 @@ public class TestEngine {
 	 * <br>
 	 * @return Retorna o link formado pela fórmula: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-geturlapidefault">getUrlAPIDefault</a>
 	**/
-	protected static String getUrlAPIDefault() {
-		getEnvironmentDefaults();
+	protected static String getUrlAPI() {
+		getEnvironment();
 		return urlApiDefault;
 	}
+
+	protected static String getUrlInitial() {
+		getEnvironment();
+		return urlInitial;
+	}
+
+	
+
 
 
 	/* [Rotinas Padroes do CORE] */
@@ -96,7 +155,6 @@ public class TestEngine {
 	 * <br>
 	 * @return Retorna uma string com os dados informados no formato JSON.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-geturlapidefault">encodeJsonBody</a>
 	**/
 	protected static String encodeJsonBody(Object body) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -117,7 +175,6 @@ public class TestEngine {
 	 * <br>
 	 * @return O valor encontrado para o elemento buscado.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getjsonvalueresponse-response-string-caminho">getJsonValue</a>
 	**/
 	protected static String getJsonValue(Response response, String caminho) {
 		String valor = null;
@@ -137,7 +194,6 @@ public class TestEngine {
 	 * <br>
 	 * @return Numero da quantidade de elementos filhos do elemento buscado.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEngine#m%C3%A9todo-getjsontotalelementsresponse-responsebody-string-caminho">getJsonTotalElements</a>
 	**/
 	protected static int getJsonTotalElements(Response responseBody, String caminho) {
 		int size = 0;

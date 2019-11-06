@@ -1,4 +1,4 @@
-package test.api.extension;
+package quimera.test.extension;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -7,9 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-import test.api.core.TestAuthentication;
-import test.api.core.TestCoreCentralizer;
-import test.api.core.TestLogger;
+import quimera.test.core.TestCoreCentralizer;
+import quimera.test.core.log.TestLogger;
 
 
 /**	
@@ -17,25 +16,18 @@ import test.api.core.TestLogger;
  * <br>
  * Esta classe possui alguns parâmetros universais para os testes, além da mesma extender da classe TestCoreCentralizer, ou seja, ao extender esta classe todas as funções do core poderão ser usadas.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestApiExtension#testapiextension">TestApiExtension</a>
 **/
-public class TestApiExtension extends TestCoreCentralizer {
+public class SimpleTestExtension extends TestCoreCentralizer {
 
 	@BeforeClass
-	protected void efetuaLoginSeNecessario(){
+	protected void resetRelatorioAntesDaClasse(){
 		relatorTest = new ArrayList<String>();
 		tituloTest = new String();
 		conteudoTest = new ArrayList<String>();
-		if(authorizationBearer == null || authorizationBearer.isEmpty()) {
-			TestAuthentication.Tenant usuario = new TestAuthentication.Tenant();
-			usuario.setUsername(environment.getAmbinetConfigs().getUsername());
-			usuario.setPassword(environment.getAmbinetConfigs().getPassword());
-			authorizationBearer = autenticacaoPlataforma.getBearer(usuario, getUrlAPIDefault() + "platform/authentication/actions/login");
-		}
 	}
 
 	@BeforeMethod
-	protected void resetRelatorio(){
+	protected void resetRelatorioAntesDoMétodo(){
 		relatorTest = new ArrayList<String>();
 		tituloTest = new String();
 		conteudoTest = new ArrayList<String>();

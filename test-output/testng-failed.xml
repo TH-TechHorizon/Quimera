@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.beta">
+      <class name="BETA.NewTest">
         <methods>
-          <include name="efetuaLoginSeNecessario"/>
-          <include name="Test"/>
+          <include name="initialEngine"/>
+          <include name="resetRelatorioAntesDoMétodo"/>
           <include name="finalizaTesteAtual"/>
-          <include name="resetRelatorio"/>
+          <include name="f"/>
+          <include name="ResetEAbrirNavegador"/>
         </methods>
-      </class> <!-- test.beta -->
+      </class> <!-- BETA.NewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

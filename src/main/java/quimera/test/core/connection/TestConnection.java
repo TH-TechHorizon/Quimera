@@ -1,11 +1,13 @@
-package test.api.core;
+package quimera.test.core.connection;
 
 import java.sql.*;
+
+import quimera.test.core.TestCoreCentralizer;
+import quimera.test.core.log.TestLogger;
 
 /**	
  * Esta classe tem o objetivo de administrar as conexões com o banco de dados. A mesma poderá ser importada para criar novas conexões com informações diferentes das informações default.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestConnection#testconnection">TestConnection</a>
 **/
 public class TestConnection extends TestCoreCentralizer{
 	private String local;
@@ -34,7 +36,6 @@ public class TestConnection extends TestCoreCentralizer{
 	/**	
 	 * Criar uma nova instância de conexão com o banco de dados.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestConnection#m%C3%A9todo-connecttenant-logindata-string-loginurl">connect(Tenant loginData, String loginURL)</a>
 	**/
     public void connect(){
         try {

@@ -1,14 +1,14 @@
-package test.api.core;
+package quimera.test.core.log;
 
 import java.lang.reflect.Method;
 
 import io.qameta.allure.Allure;
 import io.restassured.response.Response;
+import quimera.test.core.TestCoreCentralizer;
 
 /**	
  * Classe que fará os Logs no allure ou no console.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#testlogger">TestLogger</a>
 **/
 public class TestLogger extends TestCoreCentralizer {
 
@@ -17,7 +17,6 @@ public class TestLogger extends TestCoreCentralizer {
 	 * <br>
 	 * @param infos (Object) = Deverá receber um objeto contendo um String ou lista de string para que possa ser armazenada e impressa futuramente no log.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#m%C3%A9todo-loginfoobject-infos">logInfo(Object infos)</a>
 	**/
 	public static void logInfo(Object infos) {
 		conteudoTest.add(setEnter(2) + "--->" + infos.toString());
@@ -30,7 +29,6 @@ public class TestLogger extends TestCoreCentralizer {
 	 * <br>
 	 * @param response (Response) = Deverá receber um Response de alguma chamada do RestAssured.io.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#m%C3%A9todo-logresponseresponse-response">logResponse(Response response)</a>
 	**/
 	public static void logResponse(Response response) {
 		conteudoTest.add(setEnter(2) + "--->Resposta da chamada: " + response.asString());
@@ -43,7 +41,6 @@ public class TestLogger extends TestCoreCentralizer {
 	 * <br>
 	 * @param testInfo (Method) = O tipo Method receberá automaticamente um valor vindo de um @AfterMethod com este parâmetro.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#m%C3%A9todo-testinfologgermethod-testinfo">testInfoLogger(Method  testInfo)</a>
 	**/
 	public static void testInfoLogger(Method testInfo) {
 		tituloTest = setEnter(2) + "------------------------------------------------------------" + setEnter(1) + "Classe de Teste: " + testInfo.getName() + setEnter(1);
@@ -54,7 +51,6 @@ public class TestLogger extends TestCoreCentralizer {
 	 * <br>
 	 * @param infos (Object) = Deverá receber um objeto contendo um String ou lista de string para que possa ser armazenada e impressa futuramente no log.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#m%C3%A9todo-printlogobject-infos">printLog(Object infos)</a>
 	**/
 	public static void printLog(Object infos) {
 		System.out.println(infos.toString());
@@ -75,7 +71,6 @@ public class TestLogger extends TestCoreCentralizer {
 	 * <br>
 	 * @param testInfo (Method) = Deverá receber um objeto contendo um String ou lista de string para que possa ser armazenada e impressa futuramente no log.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestLogger#m%C3%A9todo-allurereportmethod-testinfo">allureReport(Method testInfo)</a>
 	**/
 	public static void allureReport(Method testInfo) {
 		testInfoLogger(testInfo);

@@ -1,21 +1,29 @@
-package test.api.core;
+package quimera.test.core.environment;
 
 /**	
  * Esta classe tem o objetivo de administrar e manipular as informações do ambiente de teste.
  * <br>
- * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEnvironment#testenvironment">TestEnvironment</a>
 **/
 public class TestEnvironment {
-	private HttpConfigs HttpConfigs;
+	private HttpConfigs httpConfigs;
+	private UIEnvConfigs uiEnvConfigs;
 	private AmbinetConfigs ambinetConfigs;
 	private DataBasesConfig dataBasesConfig;
 
 	public HttpConfigs getHttpConfigs() {
-		return HttpConfigs;
+		return httpConfigs;
 	}
 
-	public void setHttpConfigs(HttpConfigs httpConfigs) {
-		HttpConfigs = httpConfigs;
+	public void setHttpConfigs(HttpConfigs httpConfig) {
+		httpConfigs = httpConfig;
+	}
+	
+	public UIEnvConfigs getUIEnvConfigs() {
+		return uiEnvConfigs;
+	}
+
+	public void setUIEnvConfigs(UIEnvConfigs uiEnvConfig) {
+		uiEnvConfigs = uiEnvConfig;
 	}
 
 	public AmbinetConfigs getAmbinetConfigs() {
@@ -37,7 +45,6 @@ public class TestEnvironment {
 	/**	
 	 * Esta classe representa os dados de conexão para as requisições, por exemplo, o host, porta, o tipo de protocolo e outras informações.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestEnvironment.HttpConfigs#httpconfigs">HttpConfigs</a>
 	**/
 	public static class HttpConfigs{
 		private String protocol;
@@ -86,9 +93,74 @@ public class TestEnvironment {
 	}
 
 	/**	
+	 * Esta classe representa as informações usadas para a execução de testes de interface.
+	 * <br>
+	**/
+	public static class UIEnvConfigs{
+		private String chromeDriverPath;
+		private String geckoDriverPath;
+		private String navegador;
+		private String urlInitial;
+		private String exibirNavegador;
+		private String maximizarNavegador;
+		private String sleepTime;
+		private String timeOutTime;
+		
+
+		public String getChromeDriverPath() {
+			return chromeDriverPath;
+		}
+		public void setChromeDriverPath(String chromeDriverPath) {
+			this.chromeDriverPath = chromeDriverPath;
+		}
+		public String getGeckoDriverPath() {
+			return geckoDriverPath;
+		}
+		public void setGeckoDriverPath(String geckoDriverPath) {
+			this.geckoDriverPath = geckoDriverPath;
+		}
+		public String getNavegador() {
+			return navegador;
+		}
+		public void setNavegador(String navegador) {
+			this.navegador = navegador;
+		}
+		public String getExibirNavegador() {
+			return exibirNavegador;
+		}
+		public void setExibirNavegador(String exibirNavegador) {
+			this.exibirNavegador = exibirNavegador;
+		}
+		public String getUrlInitial() {
+			return urlInitial;
+		}
+		public void setUrlInitial(String urlInitial) {
+			this.urlInitial = urlInitial;
+		}
+		public String getMaximizarNavegador() {
+			return maximizarNavegador;
+		}
+		public void setMaximizarNavegador(String maximizarNavegador) {
+			this.maximizarNavegador = maximizarNavegador;
+		}
+		public String getSleepTime() {
+			return sleepTime;
+		}
+		public void setSleepTime(String sleepTime) {
+			this.sleepTime = sleepTime;
+		}
+		public String getTimeOutTime() {
+			return timeOutTime;
+		}
+		public void setTimeOutTime(String timeOutTime) {
+			this.timeOutTime = timeOutTime;
+		}
+
+	}
+	
+	/**	
 	 * Esta classe representa as informações de login e usuário.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/testenvironment.ambinetconfigs#ambinetconfigs">AmbinetConfigs</a>
 	**/
 	public static class AmbinetConfigs{
 		private String username;
@@ -111,7 +183,6 @@ public class TestEnvironment {
 	/**	
 	 * Esta classe representa as informações de acesso ao banco de dados, as rotinas de acesso ao banco de dados podem receber subclasses personalizadas para outros tipos e outros acessos ao banco de dados.
 	 * <br>
-	 * @see <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/testenvironment.DataBasesConfig#databasesconfig">DataBasesConfig</a>
 	**/
 	public static class DataBasesConfig{
 		private String databaseType;

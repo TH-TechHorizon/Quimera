@@ -2,13 +2,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.senior</groupId>
-	<artifactId>erpx-core-api-test</artifactId>
-	<version>1.4.0</version>
+	<groupId>br.com.quimera</groupId>
+	<artifactId>quimeraCore-NexEngine</artifactId>
+	<version>2.4.2</version>
 	<packaging>jar</packaging>
 
-	<name>Senior ERPX Core API Test Framework</name>
+	<name>Quimera Test Framework</name>
 	<url>http://maven.apache.org</url>
+	
+	<repositories>
+	  <repository>
+	    <id>localRepository</id>
+	    <url>file:${project.basedir}/recursos/generate/</url>
+	  </repository>
+	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,42 +30,13 @@
 		<postgres.version>42.2.6</postgres.version>
 	</properties>
 
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>libs-release</name>
-			<url>http://maven.senior.com.br:8081/artifactory/libs-release</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://maven.senior.com.br:8081/artifactory/libs-snapshot</url>
-		</repository>
-	</repositories>
-	<distributionManagement>
-		<repository>
-		    <id>central</id>
-		    <name>zoe-releases</name>
-		    <url>http://maven.senior.com.br:8081/artifactory/libs-release-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>senior-snapshot</id>
-			<name>maven-snapshots</name>
-			<url>http://maven.senior.com.br:8081/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<dependencies>
 		<!-- TestNG -->
 			<dependency>
 			    <groupId>org.testng</groupId>
 			    <artifactId>testng</artifactId>
 			    <version>${testng.version}</version>
-<!-- 			    <scope>test</scope> -->
+				<!-- <scope>test</scope> -->
 			</dependency>
 
 		<!-- Banco de Dados -->
@@ -66,6 +44,28 @@
 			    <groupId>org.postgresql</groupId>
 			    <artifactId>postgresql</artifactId>
 			    <version>${postgres.version}</version>
+			</dependency>
+
+		<!-- UITest (Selenium WebDriver) -->
+			<dependency>
+		    	<groupId>org.seleniumhq.selenium</groupId>
+		    	<artifactId>selenium-java</artifactId>
+				<version>${selenium.version}</version>
+			</dependency>
+			<dependency>
+		    	<groupId>org.seleniumhq.selenium</groupId>
+		    	<artifactId>selenium-chrome-driver</artifactId>
+		    	<version>${selenium.version}</version>
+			</dependency>
+			<dependency>
+		    	<groupId>org.seleniumhq.selenium</groupId>
+		    	<artifactId>selenium-server</artifactId>
+		    	<version>${selenium.version}</version>
+			</dependency>
+			<dependency>
+		    	<groupId>org.seleniumhq.selenium</groupId>
+		    	<artifactId>selenium-api</artifactId>
+		    	<version>${selenium.version}</version>
 			</dependency>
 
 		<!-- RestAssured.IO -->
