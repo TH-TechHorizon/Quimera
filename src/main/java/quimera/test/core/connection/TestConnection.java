@@ -6,6 +6,7 @@ import quimera.test.core.TestCoreCentralizer;
 import quimera.test.core.log.TestLogger;
 
 /**	
+ * <b> Definição: </b> <br>
  * Esta classe tem o objetivo de administrar as conexões com o banco de dados. A mesma poderá ser importada para criar novas conexões com informações diferentes das informações default.
  * <br>
 **/
@@ -19,13 +20,25 @@ public class TestConnection extends TestCoreCentralizer{
 	private String driverjdbc;
 
 
-	private void sendLog(Exception error) {
-		TestLogger.logInfo("Erro ao se conectar a base de dados: " + error.getMessage());
-	}
-
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Criação da string de conexão e da propria conexão em si.
+	 * @param datBase [String] = Tipo de Base de dados, sendo: <li> PostgresSQL </li> <li> Oracle </li>
+	 * @param local [String] = Host da base de dados.
+	 * @param porta [String] = Porta do servidor do banco de dados.
+	 * @param banco [String] = Nome do banco de dados.
+	 * @param schema [String] = Schema do banco para setar como padrão (null se não possuir).
+	 * @param usuario [String] = Usuário com as devidas permissões no banco de dados.
+	 * @param senha [String] = Senha do usuário.
+	 * @return Não possui nenhhum retorno. 
+	 * <br>
+	**/
 	public TestConnection(String datBase, String local, String porta, String banco, String schema, String usuario, String senha) {
 		if (datBase.equals(dataBase.PostgresSQL.toString())) {
-			setStr_con("jdbc:postgresql://"+ local +":" + porta +"/"+ banco + "?currentSchema=" + schema);
+			if(schema!=null)
+				setStr_con("jdbc:postgresql://"+ local +":" + porta +"/"+ banco + "?currentSchema=" + schema);
+			else
+				setStr_con("jdbc:postgresql://"+ local +":" + porta +"/"+ banco);
             setLocal(local);
             setSenha(senha);
             setUsuario(usuario);
@@ -39,8 +52,10 @@ public class TestConnection extends TestCoreCentralizer{
 		}
 	}
 
-	/**
-	 * Criar uma nova instância de conexão com o banco de dados.
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Cria uma nova instância de conexão com o banco de dados.
+	 * @return Não possui nenhhum retorno. 
 	 * <br>
 	**/
     public void connect(){
@@ -53,7 +68,12 @@ public class TestConnection extends TestCoreCentralizer{
         }
     }
 
-    //Desconexão com o Banco de Dados
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Desconecta a instância de banco de dados.
+	 * @return Não possui nenhhum retorno. 
+	 * <br>
+	**/
     public void disconect(){
         try {
             getCon().close();
@@ -62,7 +82,13 @@ public class TestConnection extends TestCoreCentralizer{
         }
     }
 
-    //Reusult Query
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Executa uma query de select ou update no banco de dados gerando um retorno.
+	 * @param query [ResultSet] = Um select, ou uma outra query.
+	 * @return Retorna o resultado simplificado da query.
+	 * <br>
+	**/
     public ResultSet query(String query){
         try {
             return getStatement().executeQuery(query);
@@ -72,15 +98,28 @@ public class TestConnection extends TestCoreCentralizer{
         }
     }
 
-
-    //Enums
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Enum com os tipos de configuração de conexão. 
+	 * <br>
+	**/
 	public enum dataBase {
 		PostgresSQL,
 		Oracle
 	}
+	
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Função para gerar um Log quando ocorrer algum erro de conexão.
+	 * @param error [Exception] = Retorno de algum exception ocorrido para que seja possível pegar o getMessage().
+	 * <br>
+	**/
+	private void sendLog(Exception error) {
+		TestLogger.logInfo("Erro ao se conectar a base de dados: " + error.getMessage());
+	}
 
-
-    //Getter and Setters
+	
+    /* Getter and Setters */
 	public String getLocal() {
 		return local;
 	}

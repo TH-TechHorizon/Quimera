@@ -7,41 +7,35 @@ import quimera.test.core.log.TestLogger;
 
 
 /**	
+ * <b> Definição: </b> <br>
  * Esta classe funciona como um facilitador para as chamadas do RestAssured.io, contendo basicamente uma chamada padrão para os diversos tipos de requisição.
- * <br>
 **/
 public class TestRequest extends TestCoreCentralizer{
 
-	private TestRequest() {
-        // Static class
-    }
+	private TestRequest(){}
 
-    public enum HttpMethod {
-        POST, GET, PUT, DELETE, PATCH
-    }
+    public enum HttpMethod { POST, GET, PUT, DELETE, PATCH }
 
     /**	
+     * <b> Definição: </b> <br>
      * Retornar o resultado de uma requisição, onde a mesma NÃO necessita de uma validação https.
-     * <br>
-     * @param httpMethod (HttpMethod) = Recebe o Enum, exemplo HttpMethod.POST para informar o tipo de requisição.
-     * @param bearer (String) = Deverá receber o Token do tipo bearer, caso não possua deverá ser informado null ou apenas aspas duplas "".
-     * @param body (Object) = Recebe o body do payload, Json ou uma classe. Caso informado uma classe a mesma será convertida para Json.
-     * @param url (String) =  Deve receber a url da requisição.
-     * <br>
+     * @param httpMethod [HttpMethod] = Recebe o Enum, exemplo HttpMethod.POST para informar o tipo de requisição.
+     * @param bearer [String] = Deverá receber o Token do tipo bearer, caso não possua deverá ser informado null ou apenas aspas duplas "".
+     * @param body [Object] = Recebe o body do payload, Json ou uma classe. Caso informado uma classe a mesma será convertida para Json.
+     * @param url [String] =  Deve receber a url da requisição.
     **/
     public static Response request(HttpMethod httpMethod, String bearer, Object body, String url) {
         return TestRequest.request(httpMethod, false, bearer, body, url);
     }
 
     /**	
+     * <b> Definição: </b> <br>
      * Retornar o resultado de uma requisição, onde a mesma PODE vir a necessitar de uma validação https.
-     * <br>
      * @param httpMethod (HttpMethod) = Recebe o Enum, exemplo HttpMethod.POST para informar o tipo de requisição.
      * @param https (boolean) = Deverá receber True para uma requisição que necessite validação https ou False para não validar o https. <br> Por padrão caso não informado, a requisição será false.
      * @param bearer (String) = Deverá receber o Token do tipo bearer, caso não possua deverá ser informado null ou apenas aspas duplas "".
      * @param body (Object) = Recebe o body do payload, Json ou uma classe. Caso informado uma classe a mesma será convertida para Json.
      * @param url (String) =  Deve receber a url da requisição.
-     * <br>
     **/
     public static Response request(final HttpMethod httpMethod, final boolean https, final String bearer, final Object body, final String URL) {
     	TestLogger.logInfo(" Body a enviar: " + body);

@@ -10,14 +10,10 @@ import quimera.test.core.connection.TestConnection;
 import quimera.test.core.environment.TestEnvironment;
 import quimera.test.core.log.TestLogger;
 
-
 /**	
- * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados.
- * <br>
- * Estas sub classes tem como objetivo ser lar de métodos facilitadores, como métodos para efetuar updates, deletes e métodos para selects mais facilitados onde não é necessário nem configurar as conexões.
- * <br>
- * Também permite configurar qual o banco a ser conectado, o usuário a ser utilizado entre outros.
- * <br>
+ * <b> Definição: </b> <br>
+ * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados, utilizando as subclasses: <li> Select </li> <li> Update </li> <br>
+ * Estas sub classes possuí algumas funções facilitadoras, como métodos para efetuar updates, deletes e selects mais facilitados.
 **/
 public class DataBaseUtilities extends TestCoreCentralizer {
 
@@ -39,14 +35,15 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	}
 
 	/**	
-	 * A classe DataBaseUtilities.Select tem como o principal objetivo facilitar o uso do select no banco de dados.
-	 * <br>
+	 * <b> Definição: </b> <br>
+	 * DataBaseUtilities.Select tem como o principal objetivo facilitar o uso do select nos testes.
 	**/
 	public static class Select{
-	
-		/**	Objetivo: Busca um resultado de algum statement sql.
-		 *	<br>
-		 * 	@param query = [String] statement para a busca de informações.
+
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca um resultado de algum statement que possua um select.
+		 * 	@param query [String] = Statement para a busca de informações.
 		 *	@return Retorna um ResultSet contendo os dados obtidos do banco de dados.
 		**/
 		public static ResultSet generico(String query) {
@@ -64,11 +61,12 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    	return result;
 		}
 
-		/**	Objetivo: Busca um resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param configuracaoDeConexao = [AmbientDefault.dataBasesConfig] Classe com as configurações do banco de dados.
-		 *	@return Retorna um ResultSet contendo os dados obtidos do banco de dados.
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca um resultado de algum statement que possua um select.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe com as configurações do banco de dados.
+		 * @return Retorna um ResultSet contendo os dados obtidos do banco de dados.
 		**/
 		public static ResultSet generico(String query, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 			TestConnection con = connectionDatabase(configuracaoDeConexao);
@@ -84,13 +82,13 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 			}
 	    	return result;
 		}
-	
-	
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
-		 *	@return Retorna um valor único, um texto da primeira linha encontrada.
+
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql que possua um select.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param coluna [String] = Coluna buscada no statement.
+		 * @return Retorna um valor único, um texto da primeira linha encontrada.
 		**/
 		public static String textoEmColuna(String query, String coluna) {
 			TestConnection con = connectionDatabase(environment.getDataBasesConfig());
@@ -108,12 +106,14 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 			}
 	    	return valor;
 		}
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
-		 * 	@param configuracaoDeConexao = [AmbientDefault.dataBasesConfig] Classe com as configurações do banco de dados.
-		 *	@return Retorna um valor único, um texto da primeira linha encontrada.
+		
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql que possua um select.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param coluna [String] = Coluna buscada no statement.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe com as configurações do banco de dados.
+		 * @return Retorna um valor único, um texto da primeira linha encontrada.
 		**/
 		public static String textoEmColuna(String query, String coluna, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 			TestConnection con = connectionDatabase(configuracaoDeConexao);
@@ -132,12 +132,12 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    	return valor;
 		}
 
-
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
-		 *	@return Retorna um valor único, um integer da primeira linha encontrada.
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql que possua algum select.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param coluna [String] = Coluna buscada no statement.
+		 * @return Retorna um valor único, um integer da primeira linha encontrada.
 		**/
 		public static Integer numeroEmColuna(String query, String coluna) {
 			TestConnection con = connectionDatabase(environment.getDataBasesConfig());
@@ -155,12 +155,14 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 			}
 	    	return valor;
 		}
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
-		 * 	@param configuracaoDeConexao = [AmbientDefault.dataBasesConfig] Classe com as configurações do banco de dados.
-		 *	@return Retorna um valor único, um integer da primeira linha encontrada.
+		
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql que possua algum select.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param coluna [String] = Coluna buscada no statement.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe com as configurações do banco de dados.
+		 * @return Retorna um valor único, um integer da primeira linha encontrada.
 		**/
 		public static Integer numeroEmColuna(String query, String coluna, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 			TestConnection con = connectionDatabase(configuracaoDeConexao);
@@ -179,11 +181,11 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    	return valor;
 		}
 	
-	
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql que possua algum select.
+		 * 	@param query [String] = Statement para a busca de informações.
+		 * 	@param coluna [String] = Coluna buscada no statement.
 		 *	@return Retorna um valor único, um Double da primeira linha encontrada.
 		**/
 		public static Double doubleEmColuna(String query, String coluna) {
@@ -202,12 +204,14 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 			}
 	    	return valor;
 		}
-		/**	Objetivo: Busca o primeiro registro de uma coluna do resultado de algum statement sql.
-		 * 	<br>
-		 * 	@param query = [String] statement para a busca de informações.
-		 * 	@param coluna = [String] Coluna buscada no statement.
-		 * 	@param configuracaoDeConexao = [AmbientDefault.dataBasesConfig] Classe com as configurações do banco de dados.
-		 *	@return Retorna um valor único, um Double da primeira linha encontrada.
+		
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Busca o primeiro registro de uma coluna do resultado de algum statement sql.
+		 * @param query [String] = Statement para a busca de informações.
+		 * @param coluna [String] = Coluna buscada no statement.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe com as configurações do banco de dados.
+		 * @return Retorna um valor único, um Double da primeira linha encontrada.
 		**/
 		public static Double doubleEmColuna(String query, String coluna, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 			TestConnection con = connectionDatabase(configuracaoDeConexao);
@@ -229,15 +233,17 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	}
 
 	/**	
-	 * A classe DataBaseUtilities.Update tem como o principal objetivo facilitar o uso do Statements de ação como updates e deletes no banco de dados.
-	 * <br>
+	 * <b> Definição: </b> <br>
+	 * DataBaseUtilities.Update tem como o principal objetivo facilitar o uso do Statements de ação como: <li> Update </li> <li> Delete </li>
 	**/
 	public static class Update{
 
-	    /**	Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
-	     * 	<br>
-	     *	@param query = (String) Query que será executada no banco de dados.
-	    **/
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
+		 * @param query [String] = Query que será executada no banco de dados.
+		 * @return Não possui nenhum retorno.
+		**/
 	    public static void generico(String query) {
 	    	TestConnection con = connectionDatabase(environment.getDataBasesConfig());
 	    	try {
@@ -247,11 +253,14 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    		logInfoError(e.getMessage());
 			}    	
 	    }
-	    /**	Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
-	     * 	<br>
-	     *	@param query = (String) Query que será executada no banco de dados.
-	     *	@param configuracaoDeConexao = (AmbientDefault.dataBasesConfig) Classe de contendo as configurações de conexão com o banco de dados.
-	    **/
+	    
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
+		 * @param query [String] = Query que será executada no banco de dados.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe de contendo as configurações de conexão com o banco de dados.
+		 * @return Não possui nenhum retorno.
+		**/
 	    public static void generico(String query, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 	    	TestConnection con = connectionDatabase(configuracaoDeConexao);
 	    	try {
@@ -261,10 +270,13 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    		logInfoError(e.getMessage());
 			}    	
 	    }
-	    /**	Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
-	     * 	<br>
-	     *	@param query = (List < String >) Lista de Statements que serão executados no banco de dados.
-	    **/
+	    
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
+		 * @param query [List < String >] = Lista de Statements que serão executados no banco de dados.
+		 * @return Não possui nenhum retorno.
+		**/
 	    public static void generico(List<String> query) {
 	    	TestConnection con = connectionDatabase(environment.getDataBasesConfig());
 	    	try {
@@ -279,11 +291,14 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 	    		logInfoError(e.getMessage());
 			}
 	    }
-	    /**	Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
-	     * 	<br>
-	     *	@param query = (List < String >) Lista de Statements que serão executados no banco de dados.
-	     *	@param configuracaoDeConexao = (AmbientDefault.dataBasesConfig) Classe de contendo as configurações de conexão com o banco de dados.
-	    **/
+	    
+		/**	
+		 * <b> Definição: </b> <br>
+		 * Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
+		 * @param query [List < String >] = Lista de Statements que serão executados no banco de dados.
+		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe de contendo as configurações de conexão com o banco de dados.
+		 * @return Não possui nenhum retorno.
+		**/
 	    public static void generico(List<String> query, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 	    	TestConnection con = connectionDatabase(configuracaoDeConexao);
 	    	try {

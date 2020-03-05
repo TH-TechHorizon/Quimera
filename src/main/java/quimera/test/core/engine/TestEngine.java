@@ -17,10 +17,8 @@ import quimera.test.core.environment.TestEnvironment.UIEnvConfigs;
 import quimera.test.core.log.TestLogger;
 
 /**	
- * Este é o coração da automação, com os métodos e propriedades principais.
- * <br>
- * O TestEngine tem como responsabilidade dar o Start inicial para os testes, capturar as informações padrões do TestEnvironmentConfigurationFile.Json e armazenar em uma propriedade do tipo TestEnvironment.
- * <br>
+ * <b> Definição: </b> <br>
+ * O TestEngine tem como responsabilidade dar o Start inicial para os testes, capturar as informações padrões do TestEnvironmentConfigurationFile.Json e armazenar em na variável "environment" da classe TestEnvironment. <br>
 **/
 public class TestEngine {
 	protected static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
@@ -32,12 +30,13 @@ public class TestEngine {
 	public static String tituloTest;
 	public static List<String> conteudoTest;
 
-	/* [Rotinas Padroes do CORE] */
-
 	/**	
-	 * Buscar as informações do TestEnvironmentConfigurationFile.Json e popular a variável environment com os dados, umas das variáveis populadas é a urlApiDefault.
-	 * <br>
-	 * Ele popula a mesma com as informações do TestEnvironment.HttpConfigs para criar essa URL, a formula para a criação deste parâmetro é: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
+	 * <b> Definição: </b> <br>
+	 * Usa o TestEnvironmentConfigurationFile.json para popular a variável environment. <br>
+	 * @return <br> Não possui nenhhum retorno, porém, pode ser usada as variáveis:  
+	 * <li><b>environment:</b> Possui todos os dados informados no TestEnvironmentConfigurationFile.Json </li>
+	 * <li><b>urlApiDefault:</b> Possui a junção do environment.HttpConfigs onde é formada a url para chamada de APIs, sendo a construção: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest </li>
+	 * <li><b>urlInitial:</b> URl incial para os testes de interface, onde o navegador abrirá inicialmente. </li> 
 	 * <br>
 	**/
 	protected static void getEnvironment() {
@@ -52,7 +51,14 @@ public class TestEngine {
         TestLogger.printLog("urlApiDefault: " + urlApiDefault);
         TestLogger.printLog("urlInitial: " + urlInitial);
 	}
-	
+
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável httpConfig do environment. <br>
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do httpConfig.
+	 * @return Não há nenhum retorno 
+	 * <br>
+	**/
 	protected static void getEnvironmentHttpConfigs(TestEnvironment environment) {
 		TestEnvironment.HttpConfigs httpConfig = new HttpConfigs();
 		ObjectMapper mapper = new ObjectMapper();
@@ -71,6 +77,13 @@ public class TestEngine {
         environment.setHttpConfigs(httpConfig);
 	}
 
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável uiEnvConfigs do environment. <br>
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do uiEnvConfigs.
+	 * @return Não há nenhum retorno 
+	 * <br>
+	**/
 	protected static void getEnvironmentUIEnvConfigs(TestEnvironment environment) {
 		TestEnvironment.UIEnvConfigs uIEnvConfigs = new UIEnvConfigs();
 		ObjectMapper mapper = new ObjectMapper();
@@ -83,6 +96,7 @@ public class TestEngine {
         	uIEnvConfigs.setMaximizarNavegador(noder.path("UIEnvConfigs").path("maximizarNavegador").asText());
         	uIEnvConfigs.setSleepTime(noder.path("UIEnvConfigs").path("sleepTime").asText());
         	uIEnvConfigs.setTimeOutTime(noder.path("UIEnvConfigs").path("timeOutTime").asText());
+        	uIEnvConfigs.setDriverPath(noder.path("UIEnvConfigs").path("driverPath").asText());
         	uIEnvConfigs.setChromeDriverPath(noder.path("UIEnvConfigs").path("chromeDriverPath").asText());
         	uIEnvConfigs.setGeckoDriverPath(noder.path("UIEnvConfigs").path("geckoDriverPath").asText());
         }catch (Exception e) {
@@ -90,7 +104,14 @@ public class TestEngine {
 		}
         environment.setUIEnvConfigs(uIEnvConfigs);
 	}
-	
+
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável ambinetConfigs do environment. <br>
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do ambinetConfigs.
+	 * @return Não há nenhum retorno 
+	 * <br>
+	**/
 	protected static void getEnvironmentAmbinetConfigs(TestEnvironment environment) {
 		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
 		ObjectMapper mapper = new ObjectMapper();
@@ -105,6 +126,13 @@ public class TestEngine {
         environment.setAmbinetConfigs(ambinetConfigs);
 	}
 
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável dataBasesConfig do environment. <br>
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do dataBasesConfig.
+	 * @return Não há nenhum retorno 
+	 * <br>
+	**/
 	protected static void getEnvironmentDataBasesConfig(TestEnvironment environment) {
 		TestEnvironment.DataBasesConfig dataBasesConfig = new DataBasesConfig();
 		ObjectMapper mapper = new ObjectMapper();
@@ -125,9 +153,9 @@ public class TestEngine {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Busca o link padrão para as requisições das apis.
-	 * <br>
-	 * @return Retorna o link formado pela fórmula: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest.
+	 * @return Retorna o link formado pela fórmula: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest. 
 	 * <br>
 	**/
 	protected static String getUrlAPI() {
@@ -135,25 +163,22 @@ public class TestEngine {
 		return urlApiDefault;
 	}
 
+	/**	
+	 * <b> Definição: </b> <br>
+	 * Busca o link padrão para os testes de Interface.
+	 * @return Retorna o link informado no json de configuração referente a TAG urlInitial. 
+	 * <br>
+	**/
 	protected static String getUrlInitial() {
 		getEnvironment();
 		return urlInitial;
 	}
 
-	
-
-
-
-	/* [Rotinas Padroes do CORE] */
-
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Transformar uma classe em um JSON.
-	 * <br>
-	 * <b>[Apenas usado no <a href="http://git.senior.com.br/gestao-empresarial/erpx-core-api-test/wikis/TestRequest">TestRequest</a>]</b>
-	 * <br>
-	 * @param body (Object) = Deverá ser uma classe, ou um objeto passível a ser parseado em JSON.
-	 * <br>
-	 * @return Retorna uma string com os dados informados no formato JSON.
+	 * @param body [Object] = Deverá ser uma classe, ou um objeto passível a ser parseado em JSON.
+	 * @return Retorna uma string com os dados informados no formato JSON. 
 	 * <br>
 	**/
 	protected static String encodeJsonBody(Object body) {
@@ -168,12 +193,11 @@ public class TestEngine {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Função para buscar o valor de um elementos Json dentro de um caminho específico.
-	 * <br>
-	 * @param response (Response) = Deverá receber o retorno de uma requisição do RestAssured.io.
-	 * @param caminho (String) = Conter o caminho de elementos até o json especifico.
-	 * <br>
-	 * @return O valor encontrado para o elemento buscado.
+	 * @param response [Response] = Deverá receber o retorno de uma requisição do RestAssured.io.
+	 * @param caminho [String] = Conter o caminho de elementos até o json especifico.
+	 * @return O valor encontrado para o elemento buscado. 
 	 * <br>
 	**/
 	protected static String getJsonValue(Response response, String caminho) {
@@ -187,12 +211,11 @@ public class TestEngine {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Retornar a quantidade de elementos filhos de um elementos específico.
-	 * <br>
-	 * @param response (Response) = Deverá receber o retorno de uma requisição do RestAssured.io.
-	 * @param caminho (String) = Conter o caminho de elementos até o json especifico.
-	 * <br>
-	 * @return Numero da quantidade de elementos filhos do elemento buscado.
+	 * @param response [Response] = Deverá receber o retorno de uma requisição do RestAssured.io.
+	 * @param caminho [String] = Conter o caminho de elementos até o json especifico.
+	 * @return Numero da quantidade de elementos filhos do elemento buscado. 
 	 * <br>
 	**/
 	protected static int getJsonTotalElements(Response responseBody, String caminho) {

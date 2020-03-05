@@ -8,7 +8,8 @@ import quimera.test.utilities.DataBaseUtilities;
 import quimera.test.utilities.UiUtilities;
 
 /**	
- * Classe de comunicação entre as classe TestApiExtension e o TestEngine.
+ * <b> Definição: </b> <br>
+ * Classe de comunicação entre as classe TestApiExtension e o TestEngine. 
  * <br>
 **/
 public class TestCoreCentralizer extends TestEngine {

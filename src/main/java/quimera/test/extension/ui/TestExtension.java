@@ -13,12 +13,9 @@ import quimera.test.core.TestCoreCentralizer;
 import quimera.test.core.engine.TestUIEngine;
 import quimera.test.core.log.TestLogger;
 
-
 /**	
- * Esta é a classe que deverá ser extendida pelas classes de testes.
- * <br>
+ * <b> Definição: </b> <br>
  * Esta classe possui alguns parâmetros universais para os testes, além da mesma extender da classe TestCoreCentralizer, ou seja, ao extender esta classe todas as funções do core poderão ser usadas.
- * <br>
 **/
 public class TestExtension extends TestCoreCentralizer {
 	

@@ -1,6 +1,7 @@
 package quimera.test.core.environment;
 
 /**	
+ * <b> Definição: </b> <br>
  * Esta classe tem o objetivo de administrar e manipular as informações do ambiente de teste.
  * <br>
 **/
@@ -43,6 +44,7 @@ public class TestEnvironment {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Esta classe representa os dados de conexão para as requisições, por exemplo, o host, porta, o tipo de protocolo e outras informações.
 	 * <br>
 	**/
@@ -93,10 +95,12 @@ public class TestEnvironment {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Esta classe representa as informações usadas para a execução de testes de interface.
 	 * <br>
 	**/
 	public static class UIEnvConfigs{
+		private String driverPath;
 		private String chromeDriverPath;
 		private String geckoDriverPath;
 		private String navegador;
@@ -105,8 +109,14 @@ public class TestEnvironment {
 		private String maximizarNavegador;
 		private String sleepTime;
 		private String timeOutTime;
-		
 
+		
+		public String getDriverPath() {
+			return driverPath;
+		}
+		public void setDriverPath(String driverPath) {
+			this.driverPath = driverPath;
+		}
 		public String getChromeDriverPath() {
 			return chromeDriverPath;
 		}
@@ -159,6 +169,7 @@ public class TestEnvironment {
 	}
 	
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Esta classe representa as informações de login e usuário.
 	 * <br>
 	**/
@@ -181,6 +192,7 @@ public class TestEnvironment {
 	}
 
 	/**	
+	 * <b> Definição: </b> <br>
 	 * Esta classe representa as informações de acesso ao banco de dados, as rotinas de acesso ao banco de dados podem receber subclasses personalizadas para outros tipos e outros acessos ao banco de dados.
 	 * <br>
 	**/

@@ -1,33 +1,34 @@
 {
 	"HttpConfigs" : {
-		"protocol" : "https | http ou htpps",
-		"host" : "Host da plataforma",
-		"port" : "Posta da plataforma",
-		"patch" : "Patch padrão da platadorma",
-		"version" : "Version da requisição",
-		"typeRequest" : "Type request da requisição"
+		"protocol" : "http",
+		"host" : "localhost",
+		"port" : "8243",
+		"patch" : "/bridge/",
+		"version" : "1.0/",
+		"typeRequest" : "rest/"
 	},
 	"UIEnvConfigs" : {
-		"chromeDriverPath" : "",
-		"geckoDriverPath" : "",
-		"navegador" : "chrome | chrome ou firefox",
-		"urlInitial" : "URL que será acessada inicialmente em cada teste!",
-		"exibirNavegador" : "false | Se o navegador será exibido ou não, tem duas opções sendo: true ou false",
-		"maximizarNavegador" : "false | Se o navegador será exibido maximizado inicialmente ou não, as opções são: true ou false",
-		"sleepTime" : "500 | Tempo em milisegundos que será usado para os Sleeps padrões",
-		"timeOutTime" : "5 | Tempo em segundos que será usado para os TimeOuts padrões"
+		"driverPath" : "c:\\driver\\chromedriver\\chromedriver.exe",
+		"chromeDriverPath" : "c:\\driver\\chromedriver\\chromedriver.exe",
+		"geckoDriverPath" : "c:\\driver\\chromedriver\\geckodriver.exe",
+		"navegador" : "chrome",
+		"urlInitial" : "www.google.com.br",
+		"exibirNavegador" : "false",
+		"maximizarNavegador" : "false",
+		"sleepTime" : "500",
+		"timeOutTime" : "5"
 	},
 	"ambinetConfigs" : {
-		"username" : "Usuário usado para os testes",
-		"password" : "Senha do usuário"
+		"username" : "loginUser",
+		"password" : "senhaLoginUser"
 	},
 	"dataBasesConfig" : {
-		"databaseType" : "PostgresSQL | PostgresSQL ou Oracle!",
-		"host" : "Host do banco de dados",
-		"port" : "Port do banco de dados",
-		"base" : "Nome da Base de dados",
-		"schemaName" : "Nome do schema",
-		"user" : "Usuario do banco de dados",
-		"password" : "Senha do usuario do banco de dados"
+		"databaseType" : "PostgresSQL",
+		"host" : "localhost",
+		"port" : "3663",
+		"base" : "Quimera",
+		"schemaName" : "",
+		"user" : "root",
+		"password" : "root"
 	}
 }
