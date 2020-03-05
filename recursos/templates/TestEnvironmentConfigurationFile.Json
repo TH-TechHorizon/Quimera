@@ -1,16 +1,16 @@
 {
 	"HttpConfigs" : {
-		"protocol" : "https | Poderá ser http ou htpps",
-		"host" : "Host da plataforma | exemplo: stinger.interno.senior.com.br",
-		"port" : "Posta da plataforma | exemplo: 8243",
-		"patch" : "Patch padrão da platadorma | exemplo: /t/senior.com.br/bridge/",
-		"version" : "Version da requisição | exemplo: 1.0/",
-		"typeRequest" : "Type request da requisição | exemplo: rest/"
+		"protocol" : "https | http ou htpps",
+		"host" : "Host da plataforma",
+		"port" : "Posta da plataforma",
+		"patch" : "Patch padrão da platadorma",
+		"version" : "Version da requisição",
+		"typeRequest" : "Type request da requisição"
 	},
 	"UIEnvConfigs" : {
-		"chromeDriverPath" : "Caminho do Driver do Chrome para Testes Automatizados",
-		"geckoDriverPath" : "Caminho do Driver do Firefox para Testes Automatizados",
-		"navegador" : "chrome | O navegador poderá ser chrome ou firefox",
+		"chromeDriverPath" : "",
+		"geckoDriverPath" : "",
+		"navegador" : "chrome | chrome ou firefox",
 		"urlInitial" : "URL que será acessada inicialmente em cada teste!",
 		"exibirNavegador" : "false | Se o navegador será exibido ou não, tem duas opções sendo: true ou false",
 		"maximizarNavegador" : "false | Se o navegador será exibido maximizado inicialmente ou não, as opções são: true ou false",
@@ -19,15 +19,15 @@
 	},
 	"ambinetConfigs" : {
 		"username" : "Usuário usado para os testes",
-		"password" : "Senha do Tenant no host"
+		"password" : "Senha do usuário"
 	},
 	"dataBasesConfig" : {
-		"databaseType" : "PostgresSQL | Sómente Postgres aceito no momento!",
-		"host" : "Host do banco de dados | exemplo: teste216.interno.senior.com.br",
-		"port" : "Port do banco de dados | exemplo: 5432",
-		"base" : "Nome da Base de dados | exemplo: erpx",
-		"schemaName" : "Nome do schema | exemplo: erpx_sup_rcb_suprimentosx",
-		"user" : "Usuario do banco de dados | exemplo: postgres",
-		"password" : "Senha do usuario do banco de dados | exemplo: postgres"
+		"databaseType" : "PostgresSQL | PostgresSQL ou Oracle!",
+		"host" : "Host do banco de dados",
+		"port" : "Port do banco de dados",
+		"base" : "Nome da Base de dados",
+		"schemaName" : "Nome do schema",
+		"user" : "Usuario do banco de dados",
+		"password" : "Senha do usuario do banco de dados"
 	}
 }

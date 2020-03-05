@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.quimera</groupId>
-	<artifactId>quimeraCore-NexEngine</artifactId>
-	<version>2.4.2</version>
+	<groupId>br.com.NexEngine</groupId>
+	<artifactId>QuimeraTestFrameworkEcosystem</artifactId>
+	<version>2.4.5</version>
 	<packaging>jar</packaging>
 
-	<name>Quimera Test Framework</name>
+	<name>Quimera - Ecossistema de Frameworks de Teste</name>
 	<url>http://maven.apache.org</url>
 	
 	<repositories>
@@ -28,9 +28,12 @@
 		<assertj-core.version>3.13.2</assertj-core.version>
 		<maven-surefire-failsafe-version>3.0.0-M3</maven-surefire-failsafe-version>
 		<postgres.version>42.2.6</postgres.version>
+		<com.microsoft.sqlserver.version>8.2.0.jre11</com.microsoft.sqlserver.version>
+		<com.oracle.version>11.2.0.1.0</com.oracle.version>
 	</properties>
 
 	<dependencies>
+
 		<!-- TestNG -->
 			<dependency>
 			    <groupId>org.testng</groupId>
@@ -44,6 +47,17 @@
 			    <groupId>org.postgresql</groupId>
 			    <artifactId>postgresql</artifactId>
 			    <version>${postgres.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc</artifactId>
+				<version>${com.microsoft.sqlserver.version}</version>
+				<!-- <scope>test</scope> -->
+			</dependency>
+			<dependency>
+				<groupId>com.jslsolucoes</groupId>
+				<artifactId>ojdbc6</artifactId>
+				<version>${com.oracle.version}</version>
 			</dependency>
 
 		<!-- UITest (Selenium WebDriver) -->

@@ -30,10 +30,16 @@ public class TestConnection extends TestCoreCentralizer{
             setSenha(senha);
             setUsuario(usuario);
             setDriverjdbc("org.postgresql.Driver");
+		}else if (datBase.equals(dataBase.Oracle.toString())) {
+			setStr_con("jdbc:oracle:thin:"+ local +":" + porta +":"+ banco);
+            setLocal(local);
+            setSenha(senha);
+            setUsuario(usuario);
+            setDriverjdbc("oracle.jdbc.driver.OracleDriver");
 		}
 	}
 
-	/**	
+	/**
 	 * Criar uma nova instância de conexão com o banco de dados.
 	 * <br>
 	**/
@@ -51,7 +57,7 @@ public class TestConnection extends TestCoreCentralizer{
     public void disconect(){
         try {
             getCon().close();
-        }catch (SQLException ex) {
+        }catch (Exception ex) {
         	sendLog(ex);
         }
     }
@@ -60,7 +66,7 @@ public class TestConnection extends TestCoreCentralizer{
     public ResultSet query(String query){
         try {
             return getStatement().executeQuery(query);
-        }catch (SQLException ex) {
+        }catch (Exception ex) {
         	sendLog(ex);
             return null;
         }
@@ -69,7 +75,8 @@ public class TestConnection extends TestCoreCentralizer{
 
     //Enums
 	public enum dataBase {
-		PostgresSQL
+		PostgresSQL,
+		Oracle
 	}
 
 

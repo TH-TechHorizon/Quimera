@@ -6,7 +6,7 @@ import quimera.test.core.TestCoreCentralizer;
 import quimera.test.core.log.TestLogger;
 
 public class AssertThat extends TestCoreCentralizer {
-	
+
 	public static RestAssertion rest() {
 		return new RestAssertion();
 	}

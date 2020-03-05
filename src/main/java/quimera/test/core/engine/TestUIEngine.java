@@ -33,6 +33,7 @@ public class TestUIEngine extends TestCoreCentralizer {
 		}
 		return driver;
 	}
+
 	public static void fecharNavegador(WebDriver driver) {
 		try {
 			driver.close();
@@ -106,7 +107,6 @@ public class TestUIEngine extends TestCoreCentralizer {
 				} else {
 					detectedOS = OSType.Other;
 				}
-				//TestLogger.printLog(detectedOS);
 			}
 			return detectedOS;
 		  }
