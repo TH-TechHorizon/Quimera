@@ -15,7 +15,11 @@
 			<id>localRepository</id>
 			<url>file:${project.basedir}/recursos/generate/</url>
 		</repository>
-			<repository>
+		<repository>
+			<id>oracleJar</id>
+			<url>file:${project.basedir}/recursos/oracleJar/</url>
+		</repository>
+		<repository>
 			<id>central</id>
 			<url>https://repo1.maven.org/maven2</url>
 		</repository>
@@ -85,9 +89,11 @@
 				<!-- <scope>test</scope> -->
 			</dependency>
 			<dependency>
-				<groupId>com.jslsolucoes</groupId>
+				<groupId>oracle</groupId>
 				<artifactId>ojdbc6</artifactId>
 				<version>${com.oracle.version}</version>
+				<scope>system</scope>
+				<systemPath>${project.basedir}/recursos/oracleJar/ojdbc6.jar</systemPath>
 			</dependency>
 
 		<!-- UITest (Selenium WebDriver) -->
