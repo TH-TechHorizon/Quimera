@@ -8,7 +8,7 @@ package quimera.test.core.environment;
 public class TestEnvironment {
 	private HttpConfigs httpConfigs;
 	private UIEnvConfigs uiEnvConfigs;
-	private AmbinetConfigs ambinetConfigs;
+	private AmbientConfigs ambientConfigs;
 	private DataBasesConfig dataBasesConfig;
 
 	public HttpConfigs getHttpConfigs() {
@@ -27,12 +27,12 @@ public class TestEnvironment {
 		uiEnvConfigs = uiEnvConfig;
 	}
 
-	public AmbinetConfigs getAmbinetConfigs() {
-		return ambinetConfigs;
+	public AmbientConfigs getAmbientConfigs() {
+		return ambientConfigs;
 	}
 
-	public void setAmbinetConfigs(AmbinetConfigs ambinetConfigs) {
-		this.ambinetConfigs = ambinetConfigs;
+	public void setAmbientConfigs(AmbientConfigs ambientConfigs) {
+		this.ambientConfigs = ambientConfigs;
 	}
 
 	public DataBasesConfig getDataBasesConfig() {
@@ -101,8 +101,6 @@ public class TestEnvironment {
 	**/
 	public static class UIEnvConfigs{
 		private String driverPath;
-		private String chromeDriverPath;
-		private String geckoDriverPath;
 		private String navegador;
 		private String urlInitial;
 		private String exibirNavegador;
@@ -116,18 +114,6 @@ public class TestEnvironment {
 		}
 		public void setDriverPath(String driverPath) {
 			this.driverPath = driverPath;
-		}
-		public String getChromeDriverPath() {
-			return chromeDriverPath;
-		}
-		public void setChromeDriverPath(String chromeDriverPath) {
-			this.chromeDriverPath = chromeDriverPath;
-		}
-		public String getGeckoDriverPath() {
-			return geckoDriverPath;
-		}
-		public void setGeckoDriverPath(String geckoDriverPath) {
-			this.geckoDriverPath = geckoDriverPath;
 		}
 		public String getNavegador() {
 			return navegador;
@@ -173,7 +159,7 @@ public class TestEnvironment {
 	 * Esta classe representa as informações de login e usuário.
 	 * <br>
 	**/
-	public static class AmbinetConfigs{
+	public static class AmbientConfigs{
 		private String username;
 		private String password;
 

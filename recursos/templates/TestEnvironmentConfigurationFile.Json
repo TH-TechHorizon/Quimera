@@ -9,8 +9,6 @@
 	},
 	"UIEnvConfigs" : {
 		"driverPath" : "c:\\driver\\chromedriver\\chromedriver.exe",
-		"chromeDriverPath" : "c:\\driver\\chromedriver\\chromedriver.exe",
-		"geckoDriverPath" : "c:\\driver\\chromedriver\\geckodriver.exe",
 		"navegador" : "chrome",
 		"urlInitial" : "www.google.com.br",
 		"exibirNavegador" : "false",

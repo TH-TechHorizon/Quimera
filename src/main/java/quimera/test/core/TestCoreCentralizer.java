@@ -14,10 +14,30 @@ import quimera.test.utilities.UiUtilities;
 **/
 public class TestCoreCentralizer extends TestEngine {
 
+	/**
+	 * <b> Definição: </b> <br>
+	 * Variável para autorização.
+	 **/
 	protected static String authorizationBearer;
+	/**
+	 * <b> Definição: </b> <br>
+	 * WebDriver padrão utilizado durante os testes.
+	 **/
 	protected static WebDriver driver = null;
+	/**
+	 * <b> Definição: </b> <br>
+	 * Biblioteca de utilitários para testes de interface.
+	 **/
 	protected static UiUtilities uiTool = new UiUtilities();
+	/**
+	 * <b> Definição: </b> <br>
+	 * Utilitário para efetuar selects.
+	 **/
 	protected static DataBaseUtilities.Select select = new DataBaseUtilities.Select();
+	/**
+	 * <b> Definição: </b> <br>
+	 * Utilitário para efetuar updates, deletes e outras actions.
+	 **/
 	protected static DataBaseUtilities.Update update = new DataBaseUtilities.Update();
 
 	@BeforeTest

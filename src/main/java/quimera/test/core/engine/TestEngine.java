@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.response.Response;
 import quimera.test.core.environment.TestEnvironment;
-import quimera.test.core.environment.TestEnvironment.AmbinetConfigs;
+import quimera.test.core.environment.TestEnvironment.AmbientConfigs;
 import quimera.test.core.environment.TestEnvironment.DataBasesConfig;
 import quimera.test.core.environment.TestEnvironment.HttpConfigs;
 import quimera.test.core.environment.TestEnvironment.UIEnvConfigs;
@@ -97,8 +97,6 @@ public class TestEngine {
         	uIEnvConfigs.setSleepTime(noder.path("UIEnvConfigs").path("sleepTime").asText());
         	uIEnvConfigs.setTimeOutTime(noder.path("UIEnvConfigs").path("timeOutTime").asText());
         	uIEnvConfigs.setDriverPath(noder.path("UIEnvConfigs").path("driverPath").asText());
-        	uIEnvConfigs.setChromeDriverPath(noder.path("UIEnvConfigs").path("chromeDriverPath").asText());
-        	uIEnvConfigs.setGeckoDriverPath(noder.path("UIEnvConfigs").path("geckoDriverPath").asText());
         }catch (Exception e) {
         	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
 		}
@@ -113,7 +111,7 @@ public class TestEngine {
 	 * <br>
 	**/
 	protected static void getEnvironmentAmbinetConfigs(TestEnvironment environment) {
-		TestEnvironment.AmbinetConfigs ambinetConfigs = new AmbinetConfigs();
+		TestEnvironment.AmbientConfigs ambinetConfigs = new AmbientConfigs();
 		ObjectMapper mapper = new ObjectMapper();
         try {
         	File jsonInputFile = new File(jsonConfig);
@@ -123,7 +121,7 @@ public class TestEngine {
         }catch (Exception e) {
         	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
 		}
-        environment.setAmbinetConfigs(ambinetConfigs);
+        environment.setAmbientConfigs(ambinetConfigs);
 	}
 
 	/**	

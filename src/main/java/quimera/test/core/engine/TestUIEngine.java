@@ -67,16 +67,29 @@ public class TestUIEngine extends TestCoreCentralizer {
 			chromeOptions.addArguments("--headless");
 		}
 		if (OsCheck.OSType.Windows.equals(OsCheck.getOperatingSystemType())) {
-			System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-			if (environment.getUIEnvConfigs().getChromeDriverPath() != "") {
-				System.setProperty("webdriver.chrome.driver",environment.getUIEnvConfigs().getChromeDriverPath());
+			if (environment.getUIEnvConfigs().getDriverPath() != "") {
+				if (environment.getUIEnvConfigs().getDriverPath().endsWith("\\")){
+					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "chromedriver.exe");					
+				}else {
+					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "\\chromedriver.exe");
+				}
+			}else {
+				System.setProperty("webdriver.chrome.driver", "msedgedriver.exe");
 			}
 		}else {
-			System.setProperty("webdriver.chrome.driver","chromedriver");
-			if (environment.getUIEnvConfigs().getChromeDriverPath() != "") {
-				System.setProperty("webdriver.chrome.driver",environment.getUIEnvConfigs().getChromeDriverPath().replace(".exe", ""));				
+			if (environment.getUIEnvConfigs().getDriverPath() != "") {
+				if (environment.getUIEnvConfigs().getDriverPath().endsWith("\\")){
+					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "chromedriver");			
+				}else {
+					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "\\chromedriver");
+				}
+			}else {
+				System.setProperty("webdriver.chrome.driver","chromedriver");	
 			}
 		}
+		
+		
+		
 		driver = new ChromeDriver(chromeOptions);
 		return driver;
 	}
@@ -84,20 +97,29 @@ public class TestUIEngine extends TestCoreCentralizer {
 	private static WebDriver beginFirefoxDriver(WebDriver driver) {
 		FirefoxBinary firefoxBinary = new FirefoxBinary();
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
-
 		if (!environment.getUIEnvConfigs().getExibirNavegador().toLowerCase().contains("true")) {
 			firefoxBinary.addCommandLineOptions("--headless");
 			firefoxOptions.setBinary(firefoxBinary);
 		}
 		if (OsCheck.OSType.Windows.equals(OsCheck.getOperatingSystemType())) {
-			System.setProperty("webdriver.gecko.driver","geckodriver.exe");
-			if (environment.getUIEnvConfigs().getGeckoDriverPath() != "") {
-				System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getGeckoDriverPath());
+			if (environment.getUIEnvConfigs().getDriverPath() != "") {
+				if (environment.getUIEnvConfigs().getDriverPath().endsWith("\\")){
+					System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getDriverPath() + "geckodriver.exe");	
+				}else {
+					System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getDriverPath() + "\\geckodriver.exe");
+				}
+			}else {
+				System.setProperty("webdriver.gecko.driver", "geckodriver.exe");	
 			}
 		}else {
-			System.setProperty("webdriver.gecko.driver","geckodriver");
-			if (environment.getUIEnvConfigs().getGeckoDriverPath() != "") {
-				System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getGeckoDriverPath().replace(".exe", ""));				
+			if (environment.getUIEnvConfigs().getDriverPath() != "") {
+				if (environment.getUIEnvConfigs().getDriverPath().endsWith("\\")){
+					System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getDriverPath() + "geckodriver");	
+				}else {
+					System.setProperty("webdriver.gecko.driver",environment.getUIEnvConfigs().getDriverPath() + "\\geckodriver");
+				}
+			}else {
+				System.setProperty("webdriver.gecko.driver", "geckodriver");	
 			}
 		}
 		driver = new FirefoxDriver(firefoxOptions);

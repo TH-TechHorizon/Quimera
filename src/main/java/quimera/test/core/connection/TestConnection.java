@@ -23,7 +23,7 @@ public class TestConnection extends TestCoreCentralizer{
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Criação da string de conexão e da propria conexão em si.
-	 * @param datBase [String] = Tipo de Base de dados, sendo: <li> PostgresSQL </li> <li> Oracle </li>
+	 * @param datBase [String] = Tipo de Base de dados, sendo: <li> PostgresSQL </li> <li> Oracle </li> <li> SQLServer </li>
 	 * @param local [String] = Host da base de dados.
 	 * @param porta [String] = Porta do servidor do banco de dados.
 	 * @param banco [String] = Nome do banco de dados.
@@ -49,7 +49,14 @@ public class TestConnection extends TestCoreCentralizer{
             setSenha(senha);
             setUsuario(usuario);
             setDriverjdbc("oracle.jdbc.driver.OracleDriver");
+		}else if (datBase.equals(dataBase.SQLServer.toString())) {
+			setStr_con("jdbc:sqlserver://"+ local + ":"+ porta +";DatabaseName=" + banco);
+            setLocal(local);
+            setSenha(senha);
+            setUsuario(usuario);
+            setDriverjdbc("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		}
+
 	}
 
 	/**	
@@ -105,7 +112,8 @@ public class TestConnection extends TestCoreCentralizer{
 	**/
 	public enum dataBase {
 		PostgresSQL,
-		Oracle
+		Oracle,
+		SQLServer
 	}
 	
 	/**	
