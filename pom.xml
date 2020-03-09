@@ -2,13 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.NexEngine</groupId>
-	<artifactId>QuimeraTestFrameworkEcosystem</artifactId>
+	<groupId>com.nexengine.quimera</groupId>
+	<artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
 	<version>2.4.7</version>
 	<packaging>jar</packaging>
-
 	<name>Quimera - Ecossistema de Frameworks de Teste</name>
-	<url>http://maven.apache.org</url>
+	<url>https://github.com/NexEngine/Quimera</url>
 	
 	<repositories>
 		<repository>
