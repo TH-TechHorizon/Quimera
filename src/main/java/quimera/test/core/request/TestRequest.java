@@ -23,6 +23,7 @@ public class TestRequest extends TestCoreCentralizer{
      * @param bearer [String] = Deverá receber o Token do tipo bearer, caso não possua deverá ser informado null ou apenas aspas duplas "".
      * @param body [Object] = Recebe o body do payload, Json ou uma classe. Caso informado uma classe a mesma será convertida para Json.
      * @param url [String] =  Deve receber a url da requisição.
+     * @return Retorna um Response com a resposta da requisição.
     **/
     public static Response request(HttpMethod httpMethod, String bearer, Object body, String url) {
         return TestRequest.request(httpMethod, false, bearer, body, url);
@@ -35,7 +36,8 @@ public class TestRequest extends TestCoreCentralizer{
      * @param https (boolean) = Deverá receber True para uma requisição que necessite validação https ou False para não validar o https. <br> Por padrão caso não informado, a requisição será false.
      * @param bearer (String) = Deverá receber o Token do tipo bearer, caso não possua deverá ser informado null ou apenas aspas duplas "".
      * @param body (Object) = Recebe o body do payload, Json ou uma classe. Caso informado uma classe a mesma será convertida para Json.
-     * @param url (String) =  Deve receber a url da requisição.
+     * @param URL (String) =  Deve receber a url da requisição.
+     * @return Retorna um Response com a resposta da requicição.
     **/
     public static Response request(final HttpMethod httpMethod, final boolean https, final String bearer, final Object body, final String URL) {
     	TestLogger.logInfo(" Body a enviar: " + body);

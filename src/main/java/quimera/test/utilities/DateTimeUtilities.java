@@ -148,7 +148,7 @@ public class DateTimeUtilities extends TestCoreCentralizer {
 		/**	
 		 * <b> Definição: </b> <br>
 		 * <b>Adiciona</b> uma quantidade de <b>Meses</b> a partir da data parametrizada e formata no padrão desejado.
-		 * @param Data [String] = Data que será acrescentado a quantidade de <b>Meses</b>.
+		 * @param date [String] = Data que será acrescentado a quantidade de <b>Meses</b>.
 		 * @param months  [Integer] = Quantidade de <b>Meses</b> a serem adicionados.
 		 * @param format [DateTimeFormatter] = Formato de data, o mais usado seria o: <code>DateTimeFormatter.ofPattern("yyyy-MM-dd")</code>.
 		 * @return Retorna a data com a quantidade de <b>Meses</b> adicionados em String, e formatada no padrão desejado.

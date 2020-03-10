@@ -20,7 +20,7 @@ public class RestAssertion extends TestCoreCentralizer {
 	 * AssertThat.rest().isEqualStatusCode(respostaAPI, 200);
 	 * </code>
 	 * @param resposta [Response] = Variável response do restassured.
-	 * @param statusEsperado [int] = status de API de retorno, exemplo: <li> 200 </li> <li> 400 </li> <li> 500 </li>
+	 * @param statusEsperado [int] = status de API de retorno, exemplo: <b> 200 </b> <b> 400 </b> <b> 500 </b>
 	 * @return Retorna um novo AssertThat para uma próxima validação.
 	**/
 	public AssertThat isEqualStatusCode(Response resposta, int statusEsperado) {

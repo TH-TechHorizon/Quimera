@@ -11,8 +11,8 @@ import quimera.test.core.environment.TestEnvironment;
 import quimera.test.core.log.TestLogger;
 
 /**	
- * <b> Definição: </b> <br></br>
- * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados, utilizando as subclasses: <b> Select </b> <b> Update </b> <br></br>
+ * <b> Definição: </b> <br>
+ * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados, utilizando as subclasses: <b> Select </b> <b> Update </b> <br>
  * Estas sub classes possuí algumas funções facilitadoras, como métodos para efetuar updates, deletes e selects mais facilitados.
 **/
 public class DataBaseUtilities extends TestCoreCentralizer {
@@ -234,7 +234,7 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 
 	/**	
 	 * <b> Definição: </b> <br>
-	 * DataBaseUtilities.Update tem como o principal objetivo facilitar o uso do Statements de ação como: <li> Update </li> <li> Delete </li>
+	 * DataBaseUtilities.Update tem como o principal objetivo facilitar o uso do Statements de ação como: <b> Update </b> <b> Delete </b>
 	**/
 	public static class Update{
 
@@ -242,7 +242,6 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 		 * <b> Definição: </b> <br>
 		 * Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
 		 * @param query [String] = Query que será executada no banco de dados.
-		 * @return Não possui nenhum retorno.
 		**/
 	    public static void generico(String query) {
 	    	TestConnection con = connectionDatabase(environment.getDataBasesConfig());
@@ -259,7 +258,6 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 		 * Efetuar uma ação no banco de dados, podendo ser updates, inserts e deletes, utilizando um Statement sql.
 		 * @param query [String] = Query que será executada no banco de dados.
 		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe de contendo as configurações de conexão com o banco de dados.
-		 * @return Não possui nenhum retorno.
 		**/
 	    public static void generico(String query, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 	    	TestConnection con = connectionDatabase(configuracaoDeConexao);
@@ -274,8 +272,7 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 		/**	
 		 * <b> Definição: </b> <br>
 		 * Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
-		 * @param query [List < String >] = Lista de Statements que serão executados no banco de dados.
-		 * @return Não possui nenhum retorno.
+		 * @param query [List (String)] = Lista de Statements que serão executados no banco de dados.
 		**/
 	    public static void generico(List<String> query) {
 	    	TestConnection con = connectionDatabase(environment.getDataBasesConfig());
@@ -295,9 +292,8 @@ public class DataBaseUtilities extends TestCoreCentralizer {
 		/**	
 		 * <b> Definição: </b> <br>
 		 * Efetuar uma ação no banco de dados, podendo ser Update, Insert e Delete, utilizando uma lista de Statement sql.
-		 * @param query [List < String >] = Lista de Statements que serão executados no banco de dados.
+		 * @param query [List (String)] = Lista de Statements que serão executados no banco de dados.
 		 * @param configuracaoDeConexao [AmbientDefault.dataBasesConfig] = Classe de contendo as configurações de conexão com o banco de dados.
-		 * @return Não possui nenhum retorno.
 		**/
 	    public static void generico(List<String> query, TestEnvironment.DataBasesConfig configuracaoDeConexao) {
 	    	TestConnection con = connectionDatabase(configuracaoDeConexao);

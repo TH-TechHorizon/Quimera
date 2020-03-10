@@ -67,8 +67,8 @@ public class AssertThat extends TestCoreCentralizer {
 	 * <code>
 	 * AssertThat.isEqualDouble(150.55, 150.55);
 	 * </code>
-	 * @param numeroEsperado [Double] = Número de origem, que será comparada com outro.
-	 * @param numeroValidado [Double] = Número que será comparado com o texto experado.
+	 * @param valorEsperado [Double] = Número de origem, que será comparada com outro.
+	 * @param valorValidado [Double] = Número que será comparado com o texto experado.
 	 * @return Retorna um novo AssertThat para uma próxima validação.
 	**/
 	public static AssertThat isEqualDouble(Double valorEsperado, Double valorValidado) {

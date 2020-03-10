@@ -33,10 +33,10 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Usa o TestEnvironmentConfigurationFile.json para popular a variável environment. <br>
-	 * @return <br> Não possui nenhhum retorno, porém, pode ser usada as variáveis:  
-	 * <li><b>environment:</b> Possui todos os dados informados no TestEnvironmentConfigurationFile.Json </li>
-	 * <li><b>urlApiDefault:</b> Possui a junção do environment.HttpConfigs onde é formada a url para chamada de APIs, sendo a construção: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest </li>
-	 * <li><b>urlInitial:</b> URl incial para os testes de interface, onde o navegador abrirá inicialmente. </li> 
+	 * Popula as variáveis:  
+	 * <b>environment:</b> Possui todos os dados informados no TestEnvironmentConfigurationFile.Json <br>
+	 * <b>urlApiDefault:</b> Possui a junção do environment.HttpConfigs onde é formada a url para chamada de APIs, sendo a construção: Protocol + "://" + Host + ":" + Port + Patch + Version + TypeRequest <br>
+	 * <b>urlInitial:</b> URl incial para os testes de interface, onde o navegador abrirá inicialmente. <br>
 	 * <br>
 	**/
 	protected static void getEnvironment() {
@@ -55,8 +55,7 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável httpConfig do environment. <br>
-	 * @param environment Variável da classe TestEnvironment que será populada com as informações do httpConfig.
-	 * @return Não há nenhum retorno 
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do httpConfig. 
 	 * <br>
 	**/
 	protected static void getEnvironmentHttpConfigs(TestEnvironment environment) {
@@ -80,8 +79,7 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável uiEnvConfigs do environment. <br>
-	 * @param environment Variável da classe TestEnvironment que será populada com as informações do uiEnvConfigs.
-	 * @return Não há nenhum retorno 
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do uiEnvConfigs. 
 	 * <br>
 	**/
 	protected static void getEnvironmentUIEnvConfigs(TestEnvironment environment) {
@@ -106,8 +104,7 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável ambinetConfigs do environment. <br>
-	 * @param environment Variável da classe TestEnvironment que será populada com as informações do ambinetConfigs.
-	 * @return Não há nenhum retorno 
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do ambinetConfigs. 
 	 * <br>
 	**/
 	protected static void getEnvironmentAmbinetConfigs(TestEnvironment environment) {
@@ -127,8 +124,7 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Usa o TestEnvironmentConfigurationFile.Json para popular a variável dataBasesConfig do environment. <br>
-	 * @param environment Variável da classe TestEnvironment que será populada com as informações do dataBasesConfig.
-	 * @return Não há nenhum retorno 
+	 * @param environment Variável da classe TestEnvironment que será populada com as informações do dataBasesConfig. 
 	 * <br>
 	**/
 	protected static void getEnvironmentDataBasesConfig(TestEnvironment environment) {
@@ -211,7 +207,7 @@ public class TestEngine {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Retornar a quantidade de elementos filhos de um elementos específico.
-	 * @param response [Response] = Deverá receber o retorno de uma requisição do RestAssured.io.
+	 * @param responseBody [Response] = Deverá receber o retorno de uma requisição do RestAssured.io.
 	 * @param caminho [String] = Conter o caminho de elementos até o json especifico.
 	 * @return Numero da quantidade de elementos filhos do elemento buscado. 
 	 * <br>

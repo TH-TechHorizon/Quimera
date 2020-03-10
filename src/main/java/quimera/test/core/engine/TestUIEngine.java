@@ -48,8 +48,7 @@ public class TestUIEngine extends TestCoreCentralizer {
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Fecha o navegador, também o processo do driver atrelado ao mesmo.
-	 * @param driver [WebDriver] = Driver do Selenium geralmente definido no TestCoreCentralizer. 
-	 * @return Não possui retorno. 
+	 * @param driver [WebDriver] = Driver do Selenium geralmente definido no TestCoreCentralizer.  
 	 * <br>
 	**/
 	public static void fecharNavegador(WebDriver driver) {

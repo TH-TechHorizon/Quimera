@@ -23,14 +23,14 @@ public class TestConnection extends TestCoreCentralizer{
 	/**	
 	 * <b> Definição: </b> <br>
 	 * Criação da string de conexão e da propria conexão em si.
-	 * @param datBase [String] = Tipo de Base de dados, sendo: <li> PostgresSQL </li> <li> Oracle </li> <li> SQLServer </li>
+	 * @param datBase [String] = Tipo de Base de dados, sendo: <br>
+	 * <b>PostgresSQL</b>|<b>Oracle</b>|<b>SQLServer</b> <br>
 	 * @param local [String] = Host da base de dados.
 	 * @param porta [String] = Porta do servidor do banco de dados.
 	 * @param banco [String] = Nome do banco de dados.
 	 * @param schema [String] = Schema do banco para setar como padrão (null se não possuir).
 	 * @param usuario [String] = Usuário com as devidas permissões no banco de dados.
-	 * @param senha [String] = Senha do usuário.
-	 * @return Não possui nenhhum retorno. 
+	 * @param senha [String] = Senha do usuário. 
 	 * <br>
 	**/
 	public TestConnection(String datBase, String local, String porta, String banco, String schema, String usuario, String senha) {
@@ -61,8 +61,7 @@ public class TestConnection extends TestCoreCentralizer{
 
 	/**	
 	 * <b> Definição: </b> <br>
-	 * Cria uma nova instância de conexão com o banco de dados.
-	 * @return Não possui nenhhum retorno. 
+	 * Cria uma nova instância de conexão com o banco de dados. 
 	 * <br>
 	**/
     public void connect(){
@@ -77,8 +76,7 @@ public class TestConnection extends TestCoreCentralizer{
 
 	/**	
 	 * <b> Definição: </b> <br>
-	 * Desconecta a instância de banco de dados.
-	 * @return Não possui nenhhum retorno. 
+	 * Desconecta a instância de banco de dados. 
 	 * <br>
 	**/
     public void disconect(){

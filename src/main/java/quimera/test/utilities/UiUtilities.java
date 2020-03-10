@@ -38,7 +38,8 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * uiTools.locateWebElement(By.xpath("//input[@title='Pesquisar']"));
 	 * </code>
 	 * @param driver [WebDriver] = Driver do selenium, geralmente definido no TestCoreCentralizer como "driver".
-	 * @return [WebElement] retorna o elemento do campo bsucado.
+	 * @param campo [By] = Campo a ser validade na definição de By, exemplo: By.xpath("//input[@title='Pesquisar']").
+	 * @return [WebElement] retorna o elemento do campo buscado.
 	**/
 	public WebElement locateWebElement(WebDriver driver, By campo) {
 		WebElement c = null;
@@ -65,8 +66,8 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * <code>
 	 * uiTools.locateWebElement(By.xpath("//input[@title='Pesquisar']"));
 	 * </code>
-	 * @param driver [WebDriver] = Driver do selenium, geralmente definido no TestCoreCentralizer como "driver".
-	 * @return [WebElement] retorna o elemento do campo bsucado.
+	 * @param campo [By] = Campo a ser validade na definição de By, exemplo: By.xpath("//input[@title='Pesquisar']").
+	 * @return [WebElement] retorna o elemento do campo buscado.
 	**/
 	public WebElement locateWebElement(By campo) {
 		WebElement c = null;
@@ -95,7 +96,7 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * uiTools.waitFieldEnableOrDisplayed(buscar);
 	 * </code>
 	 * @param campo [WebElement] = Elemento do tipo WebElement.
-	 * @return Não possui nenhum retorno.
+	 * @return Retorna o UiUtilities para uma nova chamada.
 	**/
 	public UiUtilities waitFieldEnableOrDisplayed(WebElement campo) {
 		int espera = 0;
@@ -127,7 +128,7 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * uiTools.waitFieldDisplayed(buscar);
 	 * </code>
 	 * @param campo [WebElement] = Elemento do tipo WebElement.
-	 * @return Não possui nenhum retorno.
+	 * @return Retorna o UiUtilities para uma nova chamada.
 	**/
 	public UiUtilities waitFieldDisplayed(WebElement campo) {
 		int espera = 0;
@@ -156,7 +157,7 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * uiTools.waitFieldEnabled(buscar);
 	 * </code>
 	 * @param campo [WebElement] = Elemento do tipo WebElement.
-	 * @return Não possui nenhum retorno.
+	 * @return Retorna o UiUtilities para uma nova chamada.
 	**/
 	public UiUtilities waitFieldEnabled(WebElement campo) {
 		int espera = 0;
@@ -1312,7 +1313,7 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * <code>
 	 * uiTools.isEnabled(driver, By.id("PanelSuccess"));
 	 * </code>
-	 *	@param campo [WebElement] = Campo a ser usado, deverá já ser um WebElement.
+	 *	@param driver [WebDriver] =  O client que executará os testes, geralmente o Selenium.
 	 *	@param campo [By] = Campo a ser usado, deverá ser do tipo By, por exemplo: By.xpath("//input[@title='Pesquisar']") .
 	 * @return Retorna o valor booleano true se o campo for visível e estiver habilitado e false se o campo não estiver em tela ou desabilitado.
 	**/
