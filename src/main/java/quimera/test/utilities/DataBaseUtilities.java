@@ -11,8 +11,8 @@ import quimera.test.core.environment.TestEnvironment;
 import quimera.test.core.log.TestLogger;
 
 /**	
- * <b> Definição: </b> <br>
- * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados, utilizando as subclasses: <li> Select </li> <li> Update </li> <br>
+ * <b> Definição: </b> <br></br>
+ * O DataBaseUtilities tem como objetivo auxiliar a comunicação com o banco de dados, utilizando as subclasses: <b> Select </b> <b> Update </b> <br></br>
  * Estas sub classes possuí algumas funções facilitadoras, como métodos para efetuar updates, deletes e selects mais facilitados.
 **/
 public class DataBaseUtilities extends TestCoreCentralizer {
