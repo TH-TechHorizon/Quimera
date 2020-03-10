@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.nexengine</groupId>
 	<artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-	<version>2.4.7-SNAPSHOT</version>
+	<version>Configura‡Æo para publish</version>
 	<packaging>jar</packaging>
 	<name>Quimera - Ecossistema de Frameworks de Teste</name>
 	<url>https://github.com/NexEngine/Quimera</url>
@@ -52,7 +51,7 @@
 		<connection>scm:git:git://github.com/NexEngine/Quimera.git</connection>
 		<developerConnection>scm:git:git@github.com:NexEngine/Quimera.git</developerConnection>
 		<url>https://github.com/NexEngine/Quimera</url>
-		<tag>HEAD</tag>
+		<tag>2.4.7</tag>
 	</scm>
 	
 	<build>
