@@ -3,10 +3,29 @@
 
 	<groupId>com.github.nexengine</groupId>
 	<artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 	<name>Quimera - Ecossistema de Frameworks de Teste</name>
 	<url>https://github.com/NexEngine/Quimera</url>
+    <description>
+		Framework que engloba RestAssured.IO, TestNg e AllureResport em um.
+		Usado para criar testes de API e de Interface, alé de facilitadores para as asserções e chamadas.
+    </description>
+
+    <developers>
+        <developer>
+            <id>GersonWP</id>
+            <name>Gerson Willer Pinto</name>
+            <email>willer.gerson@gmail.com</email>
+            <organization>NexEngine</organization>
+            <organizationUrl>https://github.com/NexEngine</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>+3</timezone>
+        </developer>
+    </developers>
 	
 	<repositories>
 		<repository>
@@ -46,12 +65,11 @@
 		</license>
 	</licenses>
   
-
 	<scm>
 		<connection>scm:git:git://github.com/NexEngine/Quimera.git</connection>
 		<developerConnection>scm:git:git@github.com:NexEngine/Quimera.git</developerConnection>
 		<url>https://github.com/NexEngine/Quimera</url>
-		<tag>HEAD</tag>
+		<tag>Quimera-Test-Framework-Ecosystem-1.2</tag>
 	</scm>
 	
 	<build>
