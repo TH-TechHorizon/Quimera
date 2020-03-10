@@ -3,7 +3,7 @@
 
 	<groupId>com.github.nexengine</groupId>
 	<artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<packaging>jar</packaging>
 	<name>Quimera - Ecossistema de Frameworks de Teste</name>
 	<url>https://github.com/NexEngine/Quimera</url>
@@ -51,7 +51,7 @@
 		<connection>scm:git:git://github.com/NexEngine/Quimera.git</connection>
 		<developerConnection>scm:git:git@github.com:NexEngine/Quimera.git</developerConnection>
 		<url>https://github.com/NexEngine/Quimera</url>
-		<tag>HEAD</tag>
+		<tag>Quimera-Test-Framework-Ecosystem-1.1</tag>
 	</scm>
 	
 	<build>
