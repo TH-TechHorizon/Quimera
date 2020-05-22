@@ -190,6 +190,9 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * @return Retorna o UiUtilities para uma nova chamada.
 	**/
 	public UiUtilities navegateTo(WebDriver driver, String url) {
+		if (!url.contains("http://") && !url.contains("https://")) {
+			url = "http://" + url;
+		}
 		driver.get(url);
 		return new UiUtilities();
 	}
@@ -204,6 +207,9 @@ public class UiUtilities extends TestCoreCentralizer {
 	 * @return Retorna o UiUtilities para uma nova chamada.
 	**/
 	public UiUtilities navegateTo(String url) {
+		if (!url.contains("http://") && !url.contains("https://")) {
+			url = "http://" + url;
+		}
 		driver.get(url);
 		return new UiUtilities();
 	}

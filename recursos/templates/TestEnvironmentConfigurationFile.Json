@@ -16,7 +16,7 @@
 		"sleepTime" : "500",
 		"timeOutTime" : "5"
 	},
-	"ambinetConfigs" : {
+	"ambientConfigs" : {
 		"username" : "loginUser",
 		"password" : "senhaLoginUser"
 	},

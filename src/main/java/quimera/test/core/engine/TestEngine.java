@@ -43,7 +43,7 @@ public class TestEngine {
 		environment = new TestEnvironment();
 		getEnvironmentHttpConfigs(environment);
 		getEnvironmentUIEnvConfigs(environment);
-		getEnvironmentAmbinetConfigs(environment);
+		getEnvironmentAmbientConfigs(environment);
 		getEnvironmentDataBasesConfig(environment);
 
         urlApiDefault = environment.getHttpConfigs().getProtocol() + "://" + environment.getHttpConfigs().getHost() + ":" + environment.getHttpConfigs().getPort() + environment.getHttpConfigs().getPatch() + environment.getHttpConfigs().getVersion() + environment.getHttpConfigs().getTypeRequest();
@@ -107,14 +107,14 @@ public class TestEngine {
 	 * @param environment Variável da classe TestEnvironment que será populada com as informações do ambinetConfigs. 
 	 * <br>
 	**/
-	protected static void getEnvironmentAmbinetConfigs(TestEnvironment environment) {
+	protected static void getEnvironmentAmbientConfigs(TestEnvironment environment) {
 		TestEnvironment.AmbientConfigs ambinetConfigs = new AmbientConfigs();
 		ObjectMapper mapper = new ObjectMapper();
         try {
         	File jsonInputFile = new File(jsonConfig);
         	JsonNode noder = mapper.readTree(jsonInputFile);
-    		ambinetConfigs.setUsername(noder.path("ambinetConfigs").path("username").asText());
-    		ambinetConfigs.setPassword(noder.path("ambinetConfigs").path("password").asText());
+    		ambinetConfigs.setUsername(noder.path("ambientConfigs").path("username").asText());
+    		ambinetConfigs.setPassword(noder.path("ambientConfigs").path("password").asText());
         }catch (Exception e) {
         	TestLogger.printLog("Erro ao tentar obter informação do ambiente de teste: " + e.getMessage());
 		}

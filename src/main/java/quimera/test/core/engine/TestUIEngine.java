@@ -38,10 +38,10 @@ public class TestUIEngine extends TestCoreCentralizer {
 		if (environment.getUIEnvConfigs().getNavegador().contains("edgeChromium")) {
 			driver = beginEdgeChromiumDriver(driver);
 		}
-		uiTool.navegateTo(driver, environment.getUIEnvConfigs().getUrlInitial());
 		if (environment.getUIEnvConfigs().getMaximizarNavegador().contains("true")) {
 			uiTool.maximizeBrowser(driver);
 		}
+		uiTool.navegateTo(driver, environment.getUIEnvConfigs().getUrlInitial());
 		return driver;
 	}
 
@@ -73,9 +73,9 @@ public class TestUIEngine extends TestCoreCentralizer {
 					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "\\chromedriver.exe");
 				}
 			}else {
-				System.setProperty("webdriver.chrome.driver", "msedgedriver.exe");
+				System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			}
-		}else {
+		} else {
 			if (environment.getUIEnvConfigs().getDriverPath() != "") {
 				if (environment.getUIEnvConfigs().getDriverPath().endsWith("\\")){
 					System.setProperty("webdriver.chrome.driver", environment.getUIEnvConfigs().getDriverPath() + "chromedriver");			
@@ -86,9 +86,6 @@ public class TestUIEngine extends TestCoreCentralizer {
 				System.setProperty("webdriver.chrome.driver","chromedriver");	
 			}
 		}
-		
-		
-		
 		driver = new ChromeDriver(chromeOptions);
 		return driver;
 	}
