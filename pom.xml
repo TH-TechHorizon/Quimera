@@ -3,7 +3,7 @@
 
 	<groupId>com.github.nexengine</groupId>
 	<artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-	<version>1.3.2-SNAPSHOT</version>
+	<version>1.3.2</version>
 	<packaging>jar</packaging>
 	<name>Quimera - Ecossistema de Frameworks de Teste</name>
 	<url>https://github.com/NexEngine/Quimera</url>
@@ -69,7 +69,7 @@
 		<connection>scm:git:git://github.com/NexEngine/Quimera.git</connection>
 		<developerConnection>scm:git:git@github.com:NexEngine/Quimera.git</developerConnection>
 		<url>https://github.com/NexEngine/Quimera</url>
-		<tag>HEAD</tag>
+		<tag>Quimera-Test-Framework-Ecosystem-1.3.2</tag>
 	</scm>
 	
 	<build>
@@ -166,7 +166,7 @@
 		<maven-surefire-failsafe-version>3.0.0-M3</maven-surefire-failsafe-version>
 		<postgres.version>42.2.6</postgres.version>
 		<com.microsoft.sqlserver.version>8.2.0.jre11</com.microsoft.sqlserver.version>
-		<com.oracle.version>11.2.0.1.0</com.oracle.version>
+		<com.oracle.version>19.8.0.0</com.oracle.version>
 	</properties>
 
 	<dependencies>
@@ -191,13 +191,16 @@
 				<version>${com.microsoft.sqlserver.version}</version>
 				<!-- <scope>test</scope> -->
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 			<dependency>
-				<groupId>oracle</groupId>
-				<artifactId>ojdbc6</artifactId>
-				<version>${com.oracle.version}</version>
-				<scope>system</scope>
-				<systemPath>${project.basedir}/recursos/oracleJar/ojdbc6.jar</systemPath>
+			    <groupId>com.oracle.database.jdbc</groupId>
+			    <artifactId>ojdbc8</artifactId>
+			    <version>${com.oracle.version}</version>
 			</dependency>
+
+
+
+
 
 		<!-- UITest (Selenium WebDriver) -->
 			<dependency>
