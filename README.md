@@ -132,7 +132,7 @@ Você também poderá acessar os dados padrões através da variável **environm
 
 ## Extensões do Quimera
 
-Para usar os recursos do Quimera, você terá de extender um pacote do Quimera, existem três deles, um genérico (Serve para testes de API e Interface), um somente para testes de API e outro somente para testes de Interface.
+Para usar os recursos do Quimera, você terá de extender um pacote do Quimera, existem três deles, sendo um genérico (Serve para testes de API e Interface), um somente para testes de API e outro somente para testes de Interface.
 
 #### Extendendo Para Testes de API.
 O pacote de extensão de teste de API é `quimera.test.extension.api.TestExtension`, esta extensão não irá chamar o navegador ao iniciar os testes, ou seja é focado apenas nos testes de APIs.
