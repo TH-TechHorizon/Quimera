@@ -23,7 +23,7 @@ Copie o código abaixo e cole no POM.xml de seu projeto.
 <dependency>
   <groupId>com.github.nexengine</groupId>
   <artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-  <version>1.3.5-SNAPSHOT</version>
+  <version>1.3.5</version>
 </dependency>
 ```
 
