@@ -23,7 +23,7 @@ Copie o código abaixo e cole no POM.xml de seu projeto.
 <dependency>
   <groupId>com.github.nexengine</groupId>
   <artifactId>Quimera-Test-Framework-Ecosystem</artifactId>
-  <version>1.3.5</version>
+  <version>1.3.6</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ São as informações que o framework irá usar para a comunicação dos testes 
 -	**version**: Versão da chamada de API (Se possuir), exemplo: **v1/**
 -	**typeRequest**: Se necessário, o tipo de chamada, exemplo: **rest/**
 
-Neste caso a url padrão de comunicação com as APIs seria: http://dummy.restapiexample.com:1889/api/v1/rest/ e você poderia obtêlas nos testes através da variável **urlApiDefault** nos scripts de testes.
+Neste caso a url padrão de comunicação com as APIs seria: http://dummy.restapiexample.com:1889/api/v1/rest/ e você poderia obtêlas nos testes através da variável **urlApi** nos scripts de testes.
 
 ------------
 

@@ -24,7 +24,7 @@ public class TestEngine {
 	protected static String jsonConfig = "TestEnvironmentConfigurationFile.Json";
 
 	public static TestEnvironment environment;
-	public static String urlApiDefault;
+	public static String urlApi;
 	public static String urlInitial;
 	public static List<String> relatorTest;
 	public static String tituloTest;
@@ -45,10 +45,31 @@ public class TestEngine {
 		getEnvironmentUIEnvConfigs(environment);
 		getEnvironmentAmbientConfigs(environment);
 		getEnvironmentDataBasesConfig(environment);
-
-        urlApiDefault = environment.getHttpConfigs().getProtocol() + "://" + environment.getHttpConfigs().getHost() + ":" + environment.getHttpConfigs().getPort() + environment.getHttpConfigs().getPatch() + environment.getHttpConfigs().getVersion() + environment.getHttpConfigs().getTypeRequest();
+		/*urlApiDefault = 
+		 * environment.getHttpConfigs().getProtocol() + "://" + 
+		 * environment.getHttpConfigs().getHost() + ":" + 
+		 * environment.getHttpConfigs().getPort() + 
+		 * environment.getHttpConfigs().getPatch() + 
+		 * environment.getHttpConfigs().getVersion() + 
+		 * environment.getHttpConfigs().getTypeRequest();*/
+		urlApi = environment.getHttpConfigs().getProtocol() + "://";
+		if(!environment.getHttpConfigs().getHost().isEmpty() && environment.getHttpConfigs().getHost().isBlank()) {
+			urlApi += environment.getHttpConfigs().getHost();
+		}
+		if (!environment.getHttpConfigs().getPort().isEmpty() && !environment.getHttpConfigs().getPort().isBlank()) {
+			urlApi += ":" + environment.getHttpConfigs().getPort();
+		}
+		if (!environment.getHttpConfigs().getPatch().isEmpty() && !environment.getHttpConfigs().getPatch().isBlank()) {
+			urlApi += environment.getHttpConfigs().getPatch();
+		}
+		if (!environment.getHttpConfigs().getVersion().isEmpty() && !environment.getHttpConfigs().getVersion().isBlank()) {
+			urlApi += environment.getHttpConfigs().getVersion(); 
+		}
+		if (!environment.getHttpConfigs().getTypeRequest().isEmpty() && !environment.getHttpConfigs().getTypeRequest().isBlank()) {
+			urlApi += environment.getHttpConfigs().getTypeRequest();
+		}
         urlInitial = environment.getUIEnvConfigs().getUrlInitial();
-        TestLogger.printLog("urlApiDefault: " + urlApiDefault);
+        TestLogger.printLog("urlApi: " + urlApi);
         TestLogger.printLog("urlInitial: " + urlInitial);
 	}
 
@@ -154,7 +175,7 @@ public class TestEngine {
 	**/
 	protected static String getUrlAPI() {
 		getEnvironment();
-		return urlApiDefault;
+		return urlApi;
 	}
 
 	/**	
