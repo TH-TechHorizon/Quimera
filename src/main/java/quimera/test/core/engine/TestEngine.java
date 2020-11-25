@@ -53,20 +53,20 @@ public class TestEngine {
 		 * environment.getHttpConfigs().getVersion() + 
 		 * environment.getHttpConfigs().getTypeRequest();*/
 		urlApi = environment.getHttpConfigs().getProtocol() + "://";
-		if(!environment.getHttpConfigs().getHost().isEmpty() && environment.getHttpConfigs().getHost().isBlank()) {
+		if(!environment.getHttpConfigs().getHost().isEmpty() && !environment.getHttpConfigs().getHost().isBlank()) {
 			urlApi += environment.getHttpConfigs().getHost();
 		}
 		if (!environment.getHttpConfigs().getPort().isEmpty() && !environment.getHttpConfigs().getPort().isBlank()) {
-			urlApi += ":" + environment.getHttpConfigs().getPort();
+			urlApi += ":" + environment.getHttpConfigs().getPort() + "/";
 		}
 		if (!environment.getHttpConfigs().getPatch().isEmpty() && !environment.getHttpConfigs().getPatch().isBlank()) {
-			urlApi += environment.getHttpConfigs().getPatch();
+			urlApi += environment.getHttpConfigs().getPatch() + "/";
 		}
 		if (!environment.getHttpConfigs().getVersion().isEmpty() && !environment.getHttpConfigs().getVersion().isBlank()) {
-			urlApi += environment.getHttpConfigs().getVersion(); 
+			urlApi += environment.getHttpConfigs().getVersion() + "/";
 		}
 		if (!environment.getHttpConfigs().getTypeRequest().isEmpty() && !environment.getHttpConfigs().getTypeRequest().isBlank()) {
-			urlApi += environment.getHttpConfigs().getTypeRequest();
+			urlApi += environment.getHttpConfigs().getTypeRequest() + "/";
 		}
         urlInitial = environment.getUIEnvConfigs().getUrlInitial();
         TestLogger.printLog("urlApi: " + urlApi);
