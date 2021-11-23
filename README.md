@@ -1,8 +1,8 @@
-## Quimera - Ecossistema de Frameworks de Teste
+## Quimera - Ecossistema de Teste Personalizado
 
-Este projeto desenvolvido em Java, tem como objetivo servir como um framework para testes.
+Este projeto desenvolvido em Java, tem como objetivo servir como uma mãozinha para quem usa TestNG, Selenium WebDriver e Rest Assured para seus testes.
 
-Este ecossistema oferece suporte para Testes de Interface e de APIs.
+Este ecossistema oferece suporte para Testes de Interface WEB e de APIs.
 
 Para isso são utilizados alguns recursos essenciais:
 - [TestNG 7.0.0](https://testng.org/doc/download.html "TestNG")
