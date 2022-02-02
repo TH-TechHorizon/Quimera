@@ -164,7 +164,7 @@
 		<rest-assured.version>4.1.1</rest-assured.version>
 		<assertj-core.version>3.13.2</assertj-core.version>
 		<maven-surefire-failsafe-version>3.0.0-M3</maven-surefire-failsafe-version>
-		<postgres.version>42.2.6</postgres.version>
+		<postgres.version>42.2.25</postgres.version>
 		<com.microsoft.sqlserver.version>8.2.0.jre11</com.microsoft.sqlserver.version>
 		<com.oracle.version>19.8.0.0</com.oracle.version>
 	</properties>
